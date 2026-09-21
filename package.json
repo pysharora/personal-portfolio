@@ -1,0 +1,40 @@
+{
+  "name": "personal-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@radix-ui/react-select": "^2.3.7",
+    "@tanstack/react-virtual": "^3.14.13",
+    "lucide-react": "^1.47.0",
+    "next": "16.3.5",
+    "radix-ui": "^1.6.7",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tanstack": "^2.0.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^10.11.0",
+    "eslint-config-next": "^16.3.5",
+    "prettier": "3.9.8",
+    "tailwindcss": "^4.3.3",
+    "turbo": "^2.11.2",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@12.5.1"
+}
