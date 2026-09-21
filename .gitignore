@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.DS_Store
+*.tsbuildinfo
+.env*
+!.env.example
+
+# Local planning and progress notes
+.local/
