@@ -17,7 +17,12 @@ export const skillGroups: readonly SkillGroup[] = [
   },
   {
     title: "Product & UX",
-    technologies: ["Product Thinking", "UX", "Design Systems", "Stakeholder Work"],
+    technologies: [
+      "Product Thinking",
+      "UX",
+      "Design Systems",
+      "Stakeholder Work",
+    ],
   },
   {
     title: "Business & delivery",

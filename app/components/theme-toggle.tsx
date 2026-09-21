@@ -31,7 +31,8 @@ const applyTheme = (theme: ThemeMode) => {
     return;
   }
 
-  root.style.colorScheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+  root.style.colorScheme = window.matchMedia("(prefers-color-scheme: dark)")
+    .matches
     ? "dark"
     : "light";
 };
