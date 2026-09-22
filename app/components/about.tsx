@@ -17,10 +17,10 @@ const About = () => {
           human.
         </h2>
         <p>
-          Hi, I'm Piyush! I work where messy requirements, real users, and slightly
-          dramatic interfaces meet. Mostly that means React, Next.js, Node,
-          Python, auth, APIs, and the judgment to ask: should this even exist in
-          this shape?
+          Hi, I'm Piyush! I work where messy requirements, real users, and
+          slightly dramatic interfaces meet. Mostly that means React, Next.js,
+          Node, Python, auth, APIs, and the judgment to ask: should this even
+          exist in this shape?
         </p>
       </div>
     </section>

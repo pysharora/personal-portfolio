@@ -53,8 +53,8 @@ const Hero = () => {
               </p>
 
               <p className="muted">
-                Hi, I'm Piyush, a full-stack engineer for teams that need more than
-                pretty screens. I design the flow, wire the logic, ship the
+                Hi, I'm Piyush, a full-stack engineer for teams that need more
+                than pretty screens. I design the flow, wire the logic, ship the
                 product, and keep the whole thing sturdy when actual humans
                 start poking it.
               </p>
