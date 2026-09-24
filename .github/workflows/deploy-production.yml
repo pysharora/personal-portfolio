@@ -1,8 +1,7 @@
-name: Deploy QA and production
+name: Deploy Production
 
 on:
   push:
-    branches: [master]
     tags:
       - "v*"
       - "!v*-*"
@@ -11,20 +10,20 @@ permissions:
   contents: read
 
 concurrency:
-  group: vercel-${{ github.ref_type == 'tag' && 'production' || 'qa' }}
+  group: vercel-production
   cancel-in-progress: false
 
 jobs:
   deploy:
-    name: Deploy to ${{ github.ref_type == 'tag' && 'Production' || 'QA' }}
+    name: Deploy to Production
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment:
-      name: ${{ github.ref_type == 'tag' && 'production' || 'qa' }}
+      name: production
       url: ${{ steps.deploy.outputs.url }}
     env:
       NEXT_TELEMETRY_DISABLED: "1"
-      DEPLOY_TARGET: ${{ github.ref_type == 'tag' && 'production' || 'preview' }}
+      DEPLOY_TARGET: production
     steps:
       - uses: actions/checkout@v7
         with:
