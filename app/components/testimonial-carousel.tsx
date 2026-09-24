@@ -71,7 +71,10 @@ const TestimonialCarousel = () => {
       <div className="testimonial-viewport" ref={emblaRef}>
         <div className="testimonial-track">
           {testimonials.map((testimonial) => (
-            <div className="testimonial-slide" key={testimonial.name}>
+            <div
+              className="testimonial-slide"
+              key={`${testimonial.name}-${testimonial.date}`}
+            >
               <TestimonialCard {...testimonial} />
             </div>
           ))}

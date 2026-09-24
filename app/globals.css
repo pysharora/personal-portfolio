@@ -1147,7 +1147,12 @@ h1 {
 }
 
 .section-title,
-.contact-panel h2 {
+.contact-panel h2,
+.skills h2,
+.footer-kicker,
+.work-card h3,
+.experience-list h3,
+.skill-card h3 {
   margin: 0;
   max-width: 950px;
   font-family: var(--font-display);
@@ -1157,6 +1162,8 @@ h1 {
   line-height: 0.98;
   letter-spacing: -0.025em;
   text-wrap: balance;
+  transform: rotate(-0.5deg);
+  transform-origin: left center;
 }
 
 .section-title span,
