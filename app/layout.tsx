@@ -8,6 +8,7 @@ import "./testimonials.css";
 import "./motion.css";
 import "./safari.css";
 import "./responsive.css";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Piyush Arora — Product-minded Full-stack Engineer",
@@ -44,6 +45,7 @@ const themeInitScript = `
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Analytics />
       <head>
         <link
           rel="preload"
