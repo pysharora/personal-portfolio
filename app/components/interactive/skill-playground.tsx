@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { skillScenes } from "../data/skills";
+import { skillScenes } from "@/data/skills";
 
 const SkillPlayground = () => {
   const [activeSceneIndex, setActiveSceneIndex] = useState(0);

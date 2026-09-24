@@ -1,6 +1,6 @@
 import { Briefcase, FileText, Link2, Mail } from "lucide-react";
 import Link from "next/link";
-import { contactHref, cvHref } from "../data/contact";
+import { contactHref, cvHref } from "@/data/contact";
 import { MobileMenu } from "./mobile-menu";
 import { ThemeSelect } from "./theme-select";
 

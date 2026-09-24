@@ -1,4 +1,4 @@
-import { contactHref } from "../data/contact";
+import { contactHref } from "@/data/contact";
 
 const Hero = () => {
   return (

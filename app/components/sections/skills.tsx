@@ -1,6 +1,6 @@
-import { skillGroups } from "../data/skills";
-import { SkillCard } from "./cards/skill-card";
-import { SkillPlayground } from "./skill-playground";
+import { skillGroups } from "@/data/skills";
+import { SkillCard } from "../cards/skill-card";
+import { SkillPlayground } from "../interactive/skill-playground";
 
 const Skills = () => {
   return (

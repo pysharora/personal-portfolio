@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { ThemeProvider } from "./components/theme-provider";
-import "./fonts.css";
-import "./tailwind.css";
-import "./globals.css";
-import "./testimonials.css";
-import "./motion.css";
-import "./safari.css";
-import "./responsive.css";
+import { ThemeProvider } from "./components/layout/theme-provider";
+import "@/styles/fonts.css";
+import "@/styles/tailwind.css";
+import "@/styles/globals.css";
+import "@/styles/testimonials.css";
+import "@/styles/motion.css";
+import "@/styles/safari.css";
+import "@/styles/responsive.css";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {

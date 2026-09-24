@@ -1,4 +1,4 @@
-import type { SkillGroup } from "../../data/skills";
+import type { SkillGroup } from "@/data/skills";
 import { Badge } from "../ui/badge";
 
 type SkillCardProps = SkillGroup & {
