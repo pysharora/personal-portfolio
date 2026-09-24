@@ -37,7 +37,7 @@ const ThemeSelect = () => {
             className="theme-select-trigger"
             aria-label="Choose site theme"
           >
-            <span className="theme-select-value">
+            <span className="theme-select-value flex items-center gap-1">
               <SelectedIcon size={14} aria-hidden="true" />
               <Select.Value placeholder="System" />
             </span>
