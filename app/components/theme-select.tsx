@@ -12,9 +12,9 @@ import {
 import { useTheme, type ThemeMode } from "./theme-provider";
 
 const THEME_OPTIONS = [
-  { value: "system", label: "System", icon: MonitorSmartphone },
   { value: "light", label: "Light", icon: SunMedium },
   { value: "dark", label: "Dark", icon: MoonStar },
+  { value: "system", label: "System", icon: MonitorSmartphone },
   { value: "grayscale", label: "Grayscale", icon: Contrast },
 ] as const;
 

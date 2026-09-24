@@ -30,7 +30,7 @@ const applyTheme = (theme: ThemeMode) => {
 };
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<ThemeMode>("system");
+  const [theme, setTheme] = useState<ThemeMode>("light");
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
