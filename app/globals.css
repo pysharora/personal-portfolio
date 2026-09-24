@@ -1026,6 +1026,11 @@ h1 {
   filter: saturate(0.92) contrast(1.03);
 }
 
+:root[data-theme="grayscale"] .portrait-image {
+  -webkit-filter: grayscale(1) saturate(0) contrast(1.03);
+  filter: grayscale(1) saturate(0) contrast(1.03);
+}
+
 .portrait-card figcaption {
   display: grid;
   gap: 4px;
