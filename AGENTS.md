@@ -32,7 +32,7 @@ This repo is a personal portfolio for Piyush Arora.
 - app/page.tsx
 - app/components/hero.tsx
 - app/components/site-header.tsx
-- app/components/theme-toggle.tsx
+- app/components/theme-select.tsx
 - app/globals.css
 - app/data/skills.ts
 

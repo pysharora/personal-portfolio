@@ -1,4 +1,5 @@
 import { experience } from "../data/portfolio";
+import { ExperienceItem } from "./cards/experience-item";
 
 const Experience = () => {
   return (
@@ -21,23 +22,7 @@ const Experience = () => {
         </h2>
         <ul className="experience-list">
           {experience.map((item) => (
-            <li key={item.role}>
-              <div>
-                <p className="experience-period">{item.period}</p>
-                <h3>{item.role}</h3>
-                <p className="experience-company">
-                  {item.company} · {item.location}
-                </p>
-              </div>
-              <div>
-                <p>{item.detail}</p>
-                <ul className="experience-points">
-                  {item.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              </div>
-            </li>
+            <ExperienceItem key={item.role} {...item} />
           ))}
         </ul>
       </div>

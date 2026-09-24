@@ -1,13 +1,7 @@
-type SkillGroup = {
+export type SkillGroup = {
   title: string;
   description: string;
   technologies: readonly string[];
-};
-
-type SkillProof = {
-  label: string;
-  value: string;
-  detail: string;
 };
 
 type SkillScene = {
@@ -26,21 +20,24 @@ type SkillScene = {
 
 export const skillGroups: readonly SkillGroup[] = [
   {
-    title: "Product engineering",
-    description: "Interfaces, APIs, and the glue between them.",
+    title: "Technical Skills",
+    description:
+      "Production-ready interfaces and APIs, built as one coherent system.",
     technologies: [
       "React.js",
       "Next.js",
       "Vue.js",
+      "Python",
       "TypeScript",
       "Node.js",
-      "Python",
       "APIs",
+      "Claude Code",
     ],
   },
   {
-    title: "Product & UX",
-    description: "Flows, edge cases, systems, and taste.",
+    title: "Product and UX",
+    description:
+      "Clear flows, considered edge cases, and decisions grounded in how people work.",
     technologies: [
       "JIRA",
       "Confluence",
@@ -51,48 +48,19 @@ export const skillGroups: readonly SkillGroup[] = [
     ],
   },
   {
-    title: "Business & delivery",
-    description: "Strategy when useful. Execution always.",
+    title: "Strategy and delivery",
+    description:
+      "Scope the right problem, align the people involved, and move it into production.",
     technologies: [
       "Strategy",
       "Execution",
       "Testing",
       "Performance",
-      "Freelance-ready",
+      "Monitoring",
+      "Delivery",
     ],
   },
 ];
-
-export const skillProof: readonly SkillProof[] = [
-  {
-    label: "Frontend",
-    value: "React · Next · Vue",
-    detail: "SSR pages, dashboards, admin flows, responsive UI",
-  },
-  {
-    label: "Backend",
-    value: "Node · Python · FastAPI",
-    detail: "APIs, async services, caching, integrations",
-  },
-  {
-    label: "Platform",
-    value: "Auth · SOC2 · Tokens",
-    detail: "Multi-tenant auth, audit logs, secure token lifecycle",
-  },
-  {
-    label: "Delivery",
-    value: "Testing · Reviews · AI tools",
-    detail: "Jest, RTL, PyTest, code reviews, Claude Code",
-  },
-];
-
-export const deliveryFlow = [
-  "Map the messy idea",
-  "Design the flow",
-  "Wire the APIs",
-  "Harden auth + edge cases",
-  "Ship, measure, improve",
-] as const;
 
 export const skillScenes: readonly SkillScene[] = [
   {
@@ -115,7 +83,7 @@ export const skillScenes: readonly SkillScene[] = [
     detail:
       "Node, Python, FastAPI, REST, async services, caching, integrations, and reliable data plumbing.",
     tags: ["Node.js", "Python", "FastAPI", "REST", "Caching"],
-    code: ["GET /search", "await syncJobs()", "cache.hit → fast"],
+    code: ["GET /search", "await syncJobs()", "cache.hit →\uFE0E fast"],
     preview: {
       primary: "API",
       secondary: "CACHE",
@@ -143,7 +111,7 @@ export const skillScenes: readonly SkillScene[] = [
     detail:
       "Performance fixes, retry mechanisms, test coverage, code reviews, cleanup, and AI-assisted development with judgment.",
     tags: ["Jest", "RTL", "PyTest", "Performance", "Reviews"],
-    code: ["retry.until(ok)", "test('edge case')", "ship.withConfidence()"],
+    code: ["retry.until(ok)", "test('edge case')", "release.withConfidence()"],
     preview: {
       primary: "TEST",
       secondary: "FAST",

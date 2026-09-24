@@ -1,0 +1,17 @@
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+@import "tw-animate-css";
+
+@theme inline {
+  --font-sans: "Bricolage Grotesque", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "Geist Mono", monospace;
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --color-primary: var(--ink);
+  --color-primary-foreground: var(--paper);
+  --color-secondary: var(--paper-strong);
+  --color-secondary-foreground: var(--ink);
+  --color-border: var(--line);
+  --color-ring: var(--pink);
+}

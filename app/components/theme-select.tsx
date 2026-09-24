@@ -12,9 +12,9 @@ import {
 import { useTheme, type ThemeMode } from "./theme-provider";
 
 const THEME_OPTIONS = [
-  { value: "system", label: "System", icon: MonitorSmartphone },
   { value: "light", label: "Light", icon: SunMedium },
   { value: "dark", label: "Dark", icon: MoonStar },
+  { value: "system", label: "System", icon: MonitorSmartphone },
   { value: "grayscale", label: "Grayscale", icon: Contrast },
 ] as const;
 
@@ -28,53 +28,71 @@ const ThemeSelect = () => {
     <div className="theme-picker">
       <span className="theme-picker-label">Theme</span>
 
-      <Select.Root
-        value={theme}
-        onValueChange={(value) => setTheme(value as ThemeMode)}
-      >
-        <Select.Trigger
-          className="theme-select-trigger"
-          aria-label="Choose site theme"
+      <div className="theme-select-radix">
+        <Select.Root
+          value={theme}
+          onValueChange={(value) => setTheme(value as ThemeMode)}
         >
-          <span className="theme-select-value">
-            <SelectedIcon size={14} aria-hidden="true" />
-            <Select.Value placeholder="System" />
-          </span>
-          <Select.Icon className="theme-select-icon">
-            <ChevronDown size={14} aria-hidden="true" />
-          </Select.Icon>
-        </Select.Trigger>
-
-        <Select.Portal>
-          <Select.Content
-            className="theme-select-content"
-            position="popper"
-            sideOffset={8}
+          <Select.Trigger
+            className="theme-select-trigger"
+            aria-label="Choose site theme"
           >
-            <Select.Viewport className="theme-select-viewport">
-              {THEME_OPTIONS.map((option) => {
-                const Icon = option.icon;
+            <span className="theme-select-value">
+              <SelectedIcon size={14} aria-hidden="true" />
+              <Select.Value placeholder="System" />
+            </span>
+            <Select.Icon className="theme-select-icon">
+              <ChevronDown size={14} aria-hidden="true" />
+            </Select.Icon>
+          </Select.Trigger>
 
-                return (
-                  <Select.Item
-                    key={option.value}
-                    value={option.value}
-                    className="theme-select-item"
-                  >
-                    <span className="theme-select-item-label">
-                      <Icon size={14} aria-hidden="true" />
-                      <Select.ItemText>{option.label}</Select.ItemText>
-                    </span>
-                    <Select.ItemIndicator className="theme-select-item-indicator">
-                      <Check size={14} aria-hidden="true" />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-                );
-              })}
-            </Select.Viewport>
-          </Select.Content>
-        </Select.Portal>
-      </Select.Root>
+          <Select.Portal>
+            <Select.Content
+              className="theme-select-content"
+              position="popper"
+              align="end"
+              sideOffset={18}
+            >
+              <Select.Viewport className="theme-select-viewport">
+                {THEME_OPTIONS.map((option) => {
+                  const Icon = option.icon;
+
+                  return (
+                    <Select.Item
+                      key={option.value}
+                      value={option.value}
+                      className="theme-select-item"
+                    >
+                      <span className="theme-select-item-label">
+                        <Icon size={14} aria-hidden="true" />
+                        <Select.ItemText>{option.label}</Select.ItemText>
+                      </span>
+                      <Select.ItemIndicator className="theme-select-item-indicator">
+                        <Check size={14} aria-hidden="true" />
+                      </Select.ItemIndicator>
+                    </Select.Item>
+                  );
+                })}
+              </Select.Viewport>
+            </Select.Content>
+          </Select.Portal>
+        </Select.Root>
+      </div>
+
+      <label className="theme-select-native-wrap">
+        <SelectedIcon size={16} aria-hidden="true" />
+        <select
+          value={theme}
+          aria-label="Choose site theme"
+          onChange={(event) => setTheme(event.target.value as ThemeMode)}
+        >
+          {THEME_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </label>
     </div>
   );
 };

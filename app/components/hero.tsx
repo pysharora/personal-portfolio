@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="hero-top">
         <p className="eyebrow">
           <span className="dot" aria-hidden="true" />
-          REACT · NEXT.JS · NODE · PYTHON · SAAS + MVP BUILDS
+          REACT · NEXT.JS · NODE · PYTHON · WEB PRODUCTS + MVP BUILDS
         </p>
 
         <span className="hero-status" aria-hidden="true">
@@ -28,7 +28,7 @@ const Hero = () => {
         <div className="hero-tv" aria-hidden="true">
           <div className="hero-tv-screen">
             <span>BUILD</span>
-            <span>SHIP</span>
+            <span>LAUNCH</span>
           </div>
           <div className="hero-tv-controls">
             <span />
@@ -53,10 +53,10 @@ const Hero = () => {
               </p>
 
               <p className="muted">
-                Hi, I'm Piyush, a full-stack engineer for teams that need more
-                than pretty screens. I design the flow, wire the logic, ship the
-                product, and keep the whole thing sturdy when actual humans
-                start poking it.
+                Hi, I&apos;m Piyush, a full-stack engineer for teams that need
+                more than pretty screens. I design the flow, wire the logic,
+                launch the product, and keep the whole thing sturdy when actual
+                humans start poking it.
               </p>
 
               <ul className="hero-proof" aria-label="Quick proof points">
@@ -73,16 +73,20 @@ const Hero = () => {
                   rel="noreferrer"
                 >
                   See what I build
-                  <span aria-hidden="true">↗</span>
+                  <span className="text-symbol" aria-hidden="true">
+                    {"↗\uFE0E"}
+                  </span>
                 </a>
 
                 <a className="text-link text-link-secondary" href={contactHref}>
-                  Hire me
-                  <span aria-hidden="true">↗</span>
+                  Work with me
+                  <span className="text-symbol" aria-hidden="true">
+                    {"↗\uFE0E"}
+                  </span>
                 </a>
 
-                <span className="hero-side-note" aria-hidden="true">
-                  proof + inbox ↑
+                <span className="hero-side-note text-symbol" aria-hidden="true">
+                  {"proof + inbox ↑\uFE0E"}
                 </span>
               </div>
             </div>
@@ -104,10 +108,12 @@ const Hero = () => {
 
       <div className="hero-footer" aria-hidden="true">
         <span>REACT / NEXT.JS / NODE / TYPESCRIPT</span>
-        <span className="hero-footer-chaos">
-          DISCOVERY → DESIGN → CODE → PROD → FIX → REPEAT
+        <span className="hero-footer-chaos text-symbol">
+          {
+            "DISCOVERY →\uFE0E DESIGN →\uFE0E CODE →\uFE0E PROD →\uFE0E FIX →\uFE0E REPEAT"
+          }
         </span>
-        <span>SCROLL ↓</span>
+        <span className="text-symbol">{"SCROLL ↓\uFE0E"}</span>
       </div>
     </section>
   );

@@ -30,27 +30,31 @@ const applyTheme = (theme: ThemeMode) => {
 };
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<ThemeMode>("system");
+  const [theme, setTheme] = useState<ThemeMode>("light");
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    let savedTheme: string | null = null;
-    try {
-      savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-    } catch {
-      // Storage may be unavailable; system mode remains usable.
-    }
-    const initialTheme =
-      savedTheme === "system" ||
-      savedTheme === "light" ||
-      savedTheme === "dark" ||
-      savedTheme === "grayscale"
-        ? savedTheme
-        : "system";
+    const frame = window.requestAnimationFrame(() => {
+      let savedTheme: string | null = null;
+      try {
+        savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+      } catch {
+        // Storage may be unavailable; system mode remains usable.
+      }
+      const initialTheme =
+        savedTheme === "system" ||
+        savedTheme === "light" ||
+        savedTheme === "dark" ||
+        savedTheme === "grayscale"
+          ? savedTheme
+          : "system";
 
-    setTheme(initialTheme);
-    applyTheme(initialTheme);
-    setIsLoaded(true);
+      setTheme(initialTheme);
+      applyTheme(initialTheme);
+      setIsLoaded(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {

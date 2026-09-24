@@ -1,21 +1,25 @@
 import { Briefcase, FileText, Link2, Mail } from "lucide-react";
+import Link from "next/link";
 import { contactHref, cvHref } from "../data/contact";
+import { MobileMenu } from "./mobile-menu";
 import { ThemeSelect } from "./theme-select";
 
 const SiteHeader = () => {
   return (
     <header className="header">
       <div className="header-brand">
-        <a className="wordmark" href="/" aria-label="Piyush Arora home">
+        <Link className="wordmark" href="/" aria-label="Piyush Arora home">
           piyush<span>.</span>
-        </a>
-        <p>Full-stack SaaS engineer</p>
+        </Link>
+        <p>Full-stack product engineer</p>
       </div>
 
       <nav className="header-nav" aria-label="Primary navigation">
+        <a href="#intro">About</a>
         <a href="#skills">Skills</a>
         <a href="#recent-work">Work</a>
         <a href="#experience">Experience</a>
+        <a href="#testimonials">Kind words</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -52,9 +56,13 @@ const SiteHeader = () => {
         </nav>
         <a className="contact-link" href={contactHref}>
           <Mail size={14} aria-hidden="true" />
-          Let’s talk <span aria-hidden="true">↗</span>
+          Let’s talk
+          <span className="text-symbol" aria-hidden="true">
+            {"↗\uFE0E"}
+          </span>
         </a>
       </div>
+      <MobileMenu />
     </header>
   );
 };
