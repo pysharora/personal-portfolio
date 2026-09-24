@@ -1,4 +1,4 @@
-import type { ExperienceEntry } from "../../data/portfolio";
+import type { ExperienceEntry } from "@/data/portfolio";
 
 const ExperienceItem = ({
   period,

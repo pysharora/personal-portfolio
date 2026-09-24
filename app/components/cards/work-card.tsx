@@ -1,4 +1,4 @@
-import type { WorkSample } from "../../data/portfolio";
+import type { WorkSample } from "@/data/portfolio";
 
 const WorkCard = ({ title, meta, visual, description }: WorkSample) => {
   return (

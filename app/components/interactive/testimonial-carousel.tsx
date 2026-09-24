@@ -4,9 +4,9 @@ import { useCallback, useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { testimonials } from "../data/testimonials";
-import { TestimonialCard } from "./cards/testimonial-card";
-import { Button } from "./ui/button";
+import { testimonials } from "@/data/testimonials";
+import { TestimonialCard } from "../cards/testimonial-card";
+import { Button } from "../ui/button";
 
 const LINKEDIN_RECOMMENDATIONS =
   "https://www.linkedin.com/in/pysharora/details/recommendations/";

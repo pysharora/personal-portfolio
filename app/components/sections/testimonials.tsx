@@ -1,4 +1,4 @@
-import { TestimonialCarousel } from "./testimonial-carousel";
+import { TestimonialCarousel } from "../interactive/testimonial-carousel";
 
 const Testimonials = () => {
   return (

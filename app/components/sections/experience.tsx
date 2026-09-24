@@ -1,5 +1,5 @@
-import { experience } from "../data/portfolio";
-import { ExperienceItem } from "./cards/experience-item";
+import { experience } from "@/data/portfolio";
+import { ExperienceItem } from "../cards/experience-item";
 
 const Experience = () => {
   return (

@@ -1,5 +1,5 @@
-import { bestFit, recentWork } from "../data/portfolio";
-import { WorkCard } from "./cards/work-card";
+import { bestFit, recentWork } from "@/data/portfolio";
+import { WorkCard } from "../cards/work-card";
 
 const RecentWork = () => {
   return (

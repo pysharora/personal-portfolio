@@ -2,7 +2,7 @@
 
 import { Briefcase, FileText, Link2, Mail, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { contactHref, cvHref } from "../data/contact";
+import { contactHref, cvHref } from "@/data/contact";
 import { ThemeSelect } from "./theme-select";
 
 const navigation = [

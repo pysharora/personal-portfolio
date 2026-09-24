@@ -1,5 +1,5 @@
 import { Briefcase, FileText, Link2, Mail } from "lucide-react";
-import { contactHref, cvHref } from "../data/contact";
+import { contactHref, cvHref } from "@/data/contact";
 
 const SiteFooter = () => {
   return (

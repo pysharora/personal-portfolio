@@ -1,5 +1,5 @@
 import { MessageSquareQuote } from "lucide-react";
-import type { Testimonial } from "../../data/testimonials";
+import type { Testimonial } from "@/data/testimonials";
 
 const TestimonialCard = ({
   name,

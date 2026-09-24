@@ -15,6 +15,27 @@ pnpm dev
 
 Open http://localhost:3000.
 
+## Project structure
+
+Keep the repository organized by responsibility as the site grows:
+
+- `app/` contains Next.js routes, the root layout, and route-level metadata.
+- `app/components/layout/` contains shared site chrome such as the header, footer,
+  mobile navigation, and theme controls.
+- `app/components/sections/` contains the major page sections.
+- `app/components/interactive/` contains client-side experiences such as the
+  skills playground, testimonial carousel, and mouse effects.
+- `app/components/cards/` contains reusable content cards.
+- `app/components/ui/` contains small reusable UI primitives.
+- `data/` contains portfolio content and contact data, separate from presentation.
+- `styles/` contains global stylesheets and responsive or motion-specific styles.
+- `lib/` contains shared utilities.
+- `public/` contains static assets such as images, fonts, and the CV.
+
+Add new files to the folder that matches their responsibility. Keep route files
+and global styles at the top level of `app/`, and avoid putting content data or
+general utilities inside component folders.
+
 ## Checks
 
 ```sh
