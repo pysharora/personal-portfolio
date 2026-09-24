@@ -1149,19 +1149,25 @@ h1 {
 .section-title,
 .contact-panel h2,
 .skills h2,
-.footer-kicker,
-.work-card h3,
-.experience-list h3,
-.skill-card h3 {
+.footer-kicker {
   margin: 0;
   max-width: 950px;
   font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 7.5rem);
   font-weight: 700;
   font-variation-settings: "wdth" 100;
-  line-height: 0.98;
-  letter-spacing: -0.025em;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
   text-wrap: balance;
+}
+
+.section-title,
+.contact-panel h2,
+.skills h2,
+.footer-kicker,
+.work-card h3,
+.experience-list h3,
+.skill-card h3 {
   transform: rotate(-0.5deg);
   transform-origin: left center;
 }
@@ -1474,8 +1480,8 @@ h1 {
   font-size: clamp(4.3rem, 9.5vw, 9.5rem);
   font-weight: 700;
   font-variation-settings: "wdth" 96;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
@@ -2121,8 +2127,8 @@ footer p {
   font-size: clamp(2.4rem, 5vw, 5.5rem);
   font-weight: 700;
   font-variation-settings: "wdth" 90;
-  line-height: 0.98;
-  letter-spacing: -0.025em;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
 }
 
 .footer-copy p:not(.footer-kicker) {
