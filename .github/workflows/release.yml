@@ -1,0 +1,62 @@
+name: Deploy QA and production
+
+on:
+  push:
+    branches: [master]
+    tags:
+      - "v*"
+      - "!v*-*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-${{ github.ref_type == 'tag' && 'production' || 'qa' }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to ${{ github.ref_type == 'tag' && 'Production' || 'QA' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: ${{ github.ref_type == 'tag' && 'production' || 'qa' }}
+      url: ${{ steps.deploy.outputs.url }}
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      DEPLOY_TARGET: ${{ github.ref_type == 'tag' && 'production' || 'preview' }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
+      - run: pnpm typecheck
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy checked-out commit
+        id: deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        shell: bash
+        run: |
+          for name in VERCEL_TOKEN VERCEL_ORG_ID VERCEL_PROJECT_ID; do
+            if [[ -z "${!name}" ]]; then
+              echo "::error::Add $name in GitHub Settings > Secrets and variables > Actions."
+              exit 1
+            fi
+          done
+
+          deployment_url=$(vercel deploy --yes --target="$DEPLOY_TARGET" --token="$VERCEL_TOKEN")
+          echo "url=$deployment_url" >> "$GITHUB_OUTPUT"
+          printf 'Deployment: %s\n' "$deployment_url" >> "$GITHUB_STEP_SUMMARY"
