@@ -1,4 +1,20 @@
-export const recentWork = [
+export type WorkSample = {
+  title: string;
+  meta: string;
+  visual: string;
+  description: string;
+};
+
+export type ExperienceEntry = {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  detail: string;
+  points: readonly string[];
+};
+
+export const recentWork: readonly WorkSample[] = [
   {
     title: "Enterprise retail tools",
     meta: "AdeptMind / SaaS",
@@ -24,12 +40,12 @@ export const recentWork = [
 
 export const bestFit = [
   "SaaS product teams",
-  "MVPs that need taste + shipping",
+  "MVPs that need taste + momentum",
   "Internal tools and dashboards",
   "Auth, APIs, and platform cleanup",
 ] as const;
 
-export const experience = [
+export const experience: readonly ExperienceEntry[] = [
   {
     role: "Full Stack Engineer",
     company: "AdeptMind Inc.",
@@ -38,7 +54,7 @@ export const experience = [
     detail:
       "Building product features, platform tooling, and backend improvements for enterprise retail products serving 40+ clients.",
     points: [
-      "Ships React, Next.js, TypeScript, Node.js, and Python features across search, admin, onboarding, and SSR flows.",
+      "Builds React, Next.js, TypeScript, Node.js, and Python features across search, admin, onboarding, and SSR flows.",
       "Modernized authentication from NextAuth to Better Auth with organizations, teams, audit logs, and SOC2-ready patterns.",
       "Improved backend reliability with async FastAPI work, caching, secure tokens, retry mechanisms, tests, and reviews.",
     ],
@@ -51,7 +67,7 @@ export const experience = [
     detail:
       "Built product UI, landing pages, API integrations, and analytics-backed experiences for edtech products.",
     points: [
-      "Developed the post-login interface for myseat.mclassroom.digital and shipped React modules from design specs.",
+      "Developed the post-login interface for myseat.mclassroom.digital and delivered React modules from design specs.",
       "Created lead-capturing landing pages for AITS JEE and AITS NEET campaigns.",
       "Integrated APIs and MoEngage analytics to improve product feedback loops and business visibility.",
     ],
@@ -64,7 +80,7 @@ export const experience = [
     detail:
       "A business-side layer on top of engineering: scope, stakeholders, tradeoffs, delivery, and the occasional spreadsheet with opinions.",
     points: [
-      "Useful for teams that need someone who can understand the product bet, not just the ticket.",
+      "Useful for teams that need someone who can understand the product goal, not just the ticket.",
       "Comfortable moving between technical detail, user experience, and business context.",
     ],
   },

@@ -8,22 +8,25 @@ const Contact = () => {
       aria-labelledby="contact-title"
     >
       <p className="index">
-        05 / HAVE
+        06 / HAVE
         <br />A PROJECT?
       </p>
 
       <div className="contact-panel">
         <h2 id="contact-title">
-          Have a product, role, or idea worth building?
+          Building something that deserves <span>thoughtful</span> engineering?
         </h2>
         <p>
-          Best fit for full-stack SaaS roles, freelance MVPs, internal tools,
-          dashboards, and product-heavy engineering work.
+          I’m a strong fit for product-minded engineering roles and focused
+          builds where clear UX, reliable systems, and steady progress all
+          matter.
         </p>
         <div className="hero-links">
           <a className="text-link text-link-secondary" href={contactHref}>
-            Start a conversation
-            <span aria-hidden="true">↗</span>
+            Email me
+            <span className="text-symbol" aria-hidden="true">
+              {"↗\uFE0E"}
+            </span>
           </a>
           <a
             className="text-link"
@@ -32,7 +35,9 @@ const Contact = () => {
             rel="noreferrer"
           >
             Open CV
-            <span aria-hidden="true">↗</span>
+            <span className="text-symbol" aria-hidden="true">
+              {"↗\uFE0E"}
+            </span>
           </a>
         </div>
       </div>

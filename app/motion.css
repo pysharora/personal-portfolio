@@ -1,0 +1,364 @@
+@media (prefers-reduced-motion: no-preference) {
+  .header {
+    animation: hero-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-top {
+    animation: hero-enter 500ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-line {
+    animation: hero-title-enter 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-line:nth-child(1) {
+    animation-delay: 120ms;
+  }
+
+  .hero-line:nth-child(2) {
+    animation-delay: 210ms;
+  }
+
+  .hero-line:nth-child(3) {
+    animation-delay: 300ms;
+  }
+
+  .hero-tv,
+  .hero-note {
+    animation: hero-detail-enter 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-tv {
+    animation-delay: 430ms;
+  }
+
+  .hero-note {
+    animation-delay: 500ms;
+  }
+
+  .intro-row {
+    animation: hero-enter 600ms 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .portrait-card {
+    animation: hero-detail-enter 560ms 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-proof li,
+  .hero-links .text-link,
+  .hero-footer > span {
+    animation: chip-enter 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-proof li:nth-child(1) {
+    animation-delay: 720ms;
+  }
+
+  .hero-proof li:nth-child(2) {
+    animation-delay: 790ms;
+  }
+
+  .hero-proof li:nth-child(3) {
+    animation-delay: 860ms;
+  }
+
+  .hero-links .text-link:nth-child(1) {
+    animation-delay: 900ms;
+  }
+
+  .hero-links .text-link:nth-child(2) {
+    animation-delay: 970ms;
+  }
+
+  .hero-footer > span:nth-child(1) {
+    animation-delay: 980ms;
+  }
+
+  .hero-footer > span:nth-child(2) {
+    animation-delay: 1050ms;
+  }
+
+  .hero-footer > span:nth-child(3) {
+    animation-delay: 1120ms;
+  }
+
+  .hero-internet::after {
+    animation: underline-draw 620ms 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @supports (animation-timeline: view()) {
+    .skill-card,
+    .work-card,
+    .skill-scene,
+    .contact-panel,
+    .footer-card {
+      animation: content-reveal both linear;
+      animation-range: entry 4% cover 28%;
+      animation-timeline: view();
+    }
+
+    .portfolio-section > .index,
+    .contact-section > .index,
+    .skills-heading .index {
+      animation: label-reveal both linear;
+      animation-range: entry 4% cover 24%;
+      animation-timeline: view();
+    }
+
+    .section-title,
+    .skills h2 {
+      animation: headline-wipe both linear;
+      animation-range: entry 3% cover 27%;
+      animation-timeline: view();
+    }
+
+    .experience-list > li {
+      animation: timeline-reveal both linear;
+      animation-range: entry 3% cover 26%;
+      animation-timeline: view();
+    }
+
+    .testimonial-card {
+      animation: message-reveal both linear;
+      animation-range: entry 4% cover 30%;
+      animation-timeline: view();
+    }
+
+    .skill-device,
+    .recommendations-kicker,
+    .carousel-controls,
+    .linkedin-recommendations-link,
+    .footer-links a {
+      animation: content-reveal both linear;
+      animation-range: entry 5% cover 30%;
+      animation-timeline: view();
+    }
+
+    .fit-strip li,
+    .skill-tags li {
+      animation: chip-scroll-reveal both linear;
+      animation-range: entry 5% cover 24%;
+      animation-timeline: view();
+    }
+
+    .skill-card:nth-child(2),
+    .work-card:nth-child(2) {
+      animation-range: entry 8% cover 32%;
+    }
+
+    .skill-card:nth-child(3),
+    .work-card:nth-child(3) {
+      animation-range: entry 12% cover 36%;
+    }
+
+    .work-card .work-visual {
+      animation: visual-reveal both linear;
+      animation-range: entry 5% cover 32%;
+      animation-timeline: view();
+    }
+
+    .work-card .work-visual span,
+    .skill-card .skill-mark {
+      animation: accent-reveal both linear;
+      animation-range: entry 8% cover 30%;
+      animation-timeline: view();
+    }
+
+    .experience-list > li:nth-child(2) {
+      animation-range: entry 7% cover 30%;
+    }
+
+    .experience-list > li:nth-child(3) {
+      animation-range: entry 11% cover 34%;
+    }
+
+    .experience-list > li:nth-child(4) {
+      animation-range: entry 15% cover 38%;
+    }
+  }
+
+  .mobile-menu-panel {
+    animation: menu-enter 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .mobile-menu-panel a {
+    animation: menu-item-enter 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .mobile-menu-panel a:nth-child(2) {
+    animation-delay: 35ms;
+  }
+
+  .mobile-menu-panel a:nth-child(3) {
+    animation-delay: 70ms;
+  }
+
+  .mobile-menu-panel a:nth-child(4) {
+    animation-delay: 105ms;
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes hero-detail-enter {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes hero-title-enter {
+  from {
+    opacity: 0;
+    translate: 0 34px;
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    clip-path: inset(0);
+  }
+}
+
+@keyframes chip-enter {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes underline-draw {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+@keyframes content-reveal {
+  from {
+    opacity: 0.35;
+    translate: 0 20px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes headline-wipe {
+  from {
+    opacity: 0.35;
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+}
+
+@keyframes chip-scroll-reveal {
+  from {
+    opacity: 0.25;
+    translate: 0 8px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes label-reveal {
+  from {
+    opacity: 0.2;
+    translate: -18px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes timeline-reveal {
+  from {
+    opacity: 0.25;
+    clip-path: inset(0 0 0 12%);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+}
+
+@keyframes message-reveal {
+  from {
+    opacity: 0.3;
+    translate: 24px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes visual-reveal {
+  from {
+    opacity: 0.35;
+    clip-path: inset(0 12% 12% 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+}
+
+@keyframes accent-reveal {
+  from {
+    opacity: 0;
+    scale: 0.9;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    translate: 0 -8px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes menu-item-enter {
+  from {
+    opacity: 0;
+    translate: 8px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

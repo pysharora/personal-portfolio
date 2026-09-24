@@ -1,0 +1,32 @@
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 72%);
+}
+
+.header {
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.header-nav,
+.testimonial-viewport {
+  -webkit-overflow-scrolling: touch;
+}
+
+.theme-picker select,
+[data-slot="button"],
+[data-slot="select-trigger"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+.text-symbol {
+  font-variant-emoji: text;
+}

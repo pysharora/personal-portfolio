@@ -1,4 +1,5 @@
 import { bestFit, recentWork } from "../data/portfolio";
+import { WorkCard } from "./cards/work-card";
 
 const RecentWork = () => {
   return (
@@ -26,17 +27,7 @@ const RecentWork = () => {
         </ul>
         <div className="section-grid">
           {recentWork.map((work) => (
-            <article className="work-card" key={work.title}>
-              <div
-                className="work-visual"
-                aria-label={`Screenshot placeholder for ${work.title}`}
-              >
-                <span>{work.visual}</span>
-              </div>
-              <p>{work.meta}</p>
-              <h3>{work.title}</h3>
-              <span>{work.description}</span>
-            </article>
+            <WorkCard key={work.title} {...work} />
           ))}
         </div>
       </div>
