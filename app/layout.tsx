@@ -8,7 +8,7 @@ import "./testimonials.css";
 import "./motion.css";
 import "./safari.css";
 import "./responsive.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Piyush Arora — Product-minded Full-stack Engineer",
