@@ -163,9 +163,10 @@
   h1 {
     max-width: 100%;
     font-size: 3.1rem;
-    line-height: 0.88;
+    line-height: 0.82;
     letter-spacing: -0.025em;
     word-spacing: 0.04em;
+    transform: rotate(-0.5deg);
   }
 
   .hero-line:nth-child(2) {
