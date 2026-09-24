@@ -29,8 +29,8 @@ Run `pnpm format` to format the project.
 
 GitHub Actions deploys to Vercel:
 
-- `master` pushes and merges deploy to QA (Preview).
-- Version tags such as `v1.0.0` deploy to Production.
+- **Deploy QA:** `master` pushes and merges deploy to Vercel Preview.
+- **Deploy Production:** version tags such as `v1.0.0` deploy to Production.
 - Tags containing a hyphen, such as `v1.0.0-rc.1`, do not deploy.
 
 To release, tag the commit tested in QA:
@@ -40,6 +40,6 @@ git tag v1.0.0 <commit-sha>
 git push origin v1.0.0
 ```
 
-The workflow uses GitHub environments `qa` and `production`, with repository
+The workflows use GitHub environments `qa` and `production`, with repository
 secrets `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID`. Build settings
 are defined in `vercel.json`; automatic Vercel Git deployments are disabled.
