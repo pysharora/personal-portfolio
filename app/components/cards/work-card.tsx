@@ -5,6 +5,7 @@ const WorkCard = ({ title, meta, visual, description }: WorkSample) => {
     <article className="work-card">
       <div
         className="work-visual"
+        role="img"
         aria-label={`Screenshot placeholder for ${title}`}
       >
         <span>{visual}</span>

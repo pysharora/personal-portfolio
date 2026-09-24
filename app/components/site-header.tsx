@@ -30,6 +30,7 @@ const SiteHeader = () => {
           href={cvHref}
           target="_blank"
           rel="noreferrer"
+          aria-label="Open Piyush Arora's CV PDF in a new tab"
         >
           <FileText size={14} aria-hidden="true" />
           CV PDF

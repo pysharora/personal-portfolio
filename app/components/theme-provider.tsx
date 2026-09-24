@@ -39,7 +39,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
       try {
         savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
       } catch {
-        // Storage may be unavailable; system mode remains usable.
+        // Storage may be unavailable; use the default light theme.
       }
       const initialTheme =
         savedTheme === "system" ||
@@ -47,7 +47,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
         savedTheme === "dark" ||
         savedTheme === "grayscale"
           ? savedTheme
-          : "system";
+          : "light";
 
       setTheme(initialTheme);
       applyTheme(initialTheme);

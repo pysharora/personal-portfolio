@@ -11,6 +11,7 @@ const SkillPlayground = () => {
     <div
       className="skill-story"
       data-active-scene={activeScene.title.toLowerCase()}
+      role="region"
       aria-label="Interactive skills console"
     >
       <div className="skill-device" aria-hidden="true">
