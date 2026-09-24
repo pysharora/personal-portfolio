@@ -67,13 +67,21 @@ const TestimonialCarousel = () => {
   }, [autoplay, emblaApi]);
 
   return (
-    <div className="testimonial-carousel">
+    <div
+      className="testimonial-carousel"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Recommendations from colleagues"
+    >
       <div className="testimonial-viewport" ref={emblaRef}>
         <div className="testimonial-track">
-          {testimonials.map((testimonial) => (
+          {testimonials.map((testimonial, index) => (
             <div
               className="testimonial-slide"
               key={`${testimonial.name}-${testimonial.date}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${index + 1} of ${testimonials.length}`}
             >
               <TestimonialCard {...testimonial} />
             </div>

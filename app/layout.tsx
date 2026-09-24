@@ -11,9 +11,50 @@ import "./responsive.css";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "Piyush Arora — Product-minded Full-stack Engineer",
+  title: {
+    default: "Piyush Arora — Product-minded Full-stack Engineer",
+    template: "%s | Piyush Arora",
+  },
   description:
-    "Product-minded full-stack engineer and MBA graduate building thoughtful products, systems, and experiences for the real world.",
+    "Piyush Arora is a product-minded full-stack engineer and MBA graduate building thoughtful web products, reliable systems, and clear user experiences.",
+  keywords: [
+    "Piyush Arora",
+    "full-stack engineer",
+    "product engineer",
+    "React engineer",
+    "Next.js engineer",
+    "web product development",
+  ],
+  authors: [{ name: "Piyush Arora" }],
+  creator: "Piyush Arora",
+  publisher: "Piyush Arora",
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "profile",
+    title: "Piyush Arora — Product-minded Full-stack Engineer",
+    description:
+      "A product-minded full-stack engineer building thoughtful web products and reliable systems.",
+    firstName: "Piyush",
+    lastName: "Arora",
+    username: "pysharora",
+  },
+  twitter: {
+    card: "summary",
+    title: "Piyush Arora — Product-minded Full-stack Engineer",
+    description:
+      "A product-minded full-stack engineer building thoughtful web products and reliable systems.",
+  },
 };
 
 const themeInitScript = `
@@ -27,7 +68,7 @@ const themeInitScript = `
       savedTheme === "grayscale" ||
       savedTheme === "system"
         ? savedTheme
-        : "system";
+        : "light";
     var root = document.documentElement;
     var resolvedTheme =
       theme === "system"
@@ -44,7 +85,7 @@ const themeInitScript = `
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <Analytics />
       <head>
         <link
