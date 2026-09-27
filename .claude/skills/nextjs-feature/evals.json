@@ -1,0 +1,24 @@
+[
+  {
+    "query": "Add a writing section to the portfolio homepage",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a reusable project card and render it from a new section",
+    "should_trigger": true
+  },
+  {
+    "query": "Add a second route for a detailed case study",
+    "should_trigger": true
+  },
+  {
+    "query": "Build a new call-to-action component for the footer",
+    "should_trigger": true
+  },
+  { "query": "Change my AdeptMind employment dates", "should_trigger": false },
+  {
+    "query": "Make the dark theme background slightly warmer",
+    "should_trigger": false
+  },
+  { "query": "Update the Open Graph description", "should_trigger": false }
+]

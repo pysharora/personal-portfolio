@@ -1,0 +1,21 @@
+[
+  {
+    "query": "Add keyboard navigation to the skills playground tabs",
+    "should_trigger": true
+  },
+  {
+    "query": "Fix the mobile menu so Escape closes it and focus returns",
+    "should_trigger": true
+  },
+  {
+    "query": "Add an interactive filter with React state",
+    "should_trigger": true
+  },
+  {
+    "query": "Change carousel autoplay behavior for reduced motion",
+    "should_trigger": true
+  },
+  { "query": "Change the pink accent color", "should_trigger": false },
+  { "query": "Add another work experience entry", "should_trigger": false },
+  { "query": "Update sitemap priority", "should_trigger": false }
+]

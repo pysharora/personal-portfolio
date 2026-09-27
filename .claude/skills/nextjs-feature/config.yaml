@@ -1,0 +1,13 @@
+# Stable repository locations and checks for the nextjs-feature skill
+page_entry: app/page.tsx
+layout_entry: app/layout.tsx
+sections_dir: app/components/sections
+cards_dir: app/components/cards
+interactive_dir: app/components/interactive
+ui_dir: app/components/ui
+data_dir: data
+checks:
+  - pnpm lint
+  - pnpm typecheck
+  - pnpm format:check
+  - pnpm build

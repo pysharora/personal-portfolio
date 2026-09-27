@@ -1,0 +1,15 @@
+[
+  {
+    "query": "Add an Open Graph image and Twitter preview metadata",
+    "should_trigger": true
+  },
+  { "query": "Update my job title in Person JSON-LD", "should_trigger": true },
+  {
+    "query": "Fix the production URL used by robots.txt and sitemap.xml",
+    "should_trigger": true
+  },
+  { "query": "Change the homepage meta description", "should_trigger": true },
+  { "query": "Rewrite the visible hero paragraph", "should_trigger": false },
+  { "query": "Add a responsive projects grid", "should_trigger": false },
+  { "query": "Change the theme picker labels", "should_trigger": false }
+]
