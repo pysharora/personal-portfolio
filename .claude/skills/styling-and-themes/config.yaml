@@ -1,0 +1,13 @@
+# Stable styling locations and visual matrix
+layout: app/layout.tsx
+styles:
+  - styles/fonts.css
+  - styles/tailwind.css
+  - styles/globals.css
+  - styles/testimonials.css
+  - styles/motion.css
+  - styles/safari.css
+  - styles/responsive.css
+themes: [light, dark, grayscale, system]
+breakpoints: [1200px, 900px, 700px]
+storage_key: portfolio-theme

@@ -30,11 +30,12 @@ This repo is a personal portfolio for Piyush Arora.
 ## Files to review first
 
 - app/page.tsx
-- app/components/hero.tsx
-- app/components/site-header.tsx
-- app/components/theme-select.tsx
-- app/globals.css
-- app/data/skills.ts
+- app/layout.tsx
+- app/components/sections/hero.tsx
+- app/components/layout/site-header.tsx
+- app/components/layout/theme-select.tsx
+- styles/globals.css
+- data/skills.ts
 
 ## Runtime requirement
 
@@ -52,3 +53,9 @@ pnpm dev
 ## Architecture notice
 
 This is a small portfolio project, not a large app. Keep changes focused, intentional, and easy to maintain. Do not add unnecessary frameworks or complexity unless the user specifically asks for them.
+
+## Agent documentation
+
+- Read `.claude/docs-index.md` for the curated stack, architecture, and workflow index.
+- Use the focused rules and skills under `.claude/` rather than duplicating their instructions here.
+- `.claude/docs-index.md` is maintained manually; follow `.claude/commands/docs-sync.md` when dependencies, architecture, or commands change.

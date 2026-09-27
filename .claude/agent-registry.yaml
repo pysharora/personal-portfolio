@@ -1,0 +1,58 @@
+# Hand-maintained registry for the portfolio's focused agents
+agents:
+  - name: portfolio-engineer
+    description: "Activate for focused Next.js feature work, content integration, interactive behavior, or implementation trade-offs in the personal portfolio"
+    model: inherit
+    skills:
+      - "nextjs-feature"
+      - "portfolio-content"
+      - "styling-and-themes"
+      - "interactive-component"
+      - "seo-and-metadata"
+      - "quality-gate"
+    interfaces:
+      produces:
+        - "focused portfolio changes"
+        - "validation evidence"
+        - "implementation notes"
+      consumes:
+        - "user request"
+        - "AGENTS.md"
+        - ".claude/docs-index.md"
+        - "source code"
+  - name: design-reviewer
+    description: "Activate for read-only review of visual quality, editorial consistency, responsive layouts, themes, motion, and accessibility"
+    model: inherit
+    skills:
+      - "styling-and-themes"
+      - "interactive-component"
+      - "code-reviewer"
+      - "quality-gate"
+    interfaces:
+      produces:
+        - "visual review findings"
+        - "accessibility findings"
+        - "responsive and theme risk assessment"
+      consumes:
+        - "source code"
+        - "diffs"
+        - "rendered portfolio"
+        - ".claude/docs-index.md"
+  - name: release-reviewer
+    description: "Activate for read-only QA or production release readiness, CI workflow review, SEO checks, asset checks, and version-tag validation"
+    model: inherit
+    skills:
+      - "quality-gate"
+      - "code-reviewer"
+      - "seo-and-metadata"
+      - "release-deployment"
+    interfaces:
+      produces:
+        - "release readiness verdict"
+        - "blocking findings"
+        - "proposed release command"
+      consumes:
+        - "git state"
+        - "CI workflows"
+        - "build output"
+        - "release target"

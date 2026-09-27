@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-09-27T00:00:00+05:30",
+  "dependency_hash": "manual-refresh",
+  "detected_stack": [
+    "node-24",
+    "pnpm-12.5.1",
+    "typescript-6",
+    "nextjs-16.3.5",
+    "react-19",
+    "tailwind-4",
+    "radix-ui",
+    "class-variance-authority",
+    "embla-carousel",
+    "vercel-analytics",
+    "vercel",
+    "github-actions"
+  ],
+  "note": "Hand-curated. Dependency detection cannot preserve CSS import order, theme invariants, client boundaries, personal writing direction, missing-test status, or release authorization boundaries. Audit the repository and edit this file with docs-index.md; do not regenerate either blindly."
+}

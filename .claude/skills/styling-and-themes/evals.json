@@ -1,0 +1,24 @@
+[
+  {
+    "query": "Make the dark theme less blue without changing layout",
+    "should_trigger": true
+  },
+  {
+    "query": "Fix the hero typography on small screens",
+    "should_trigger": true
+  },
+  { "query": "Add a new sepia theme option", "should_trigger": true },
+  {
+    "query": "Reduce motion in the section reveal animations",
+    "should_trigger": true
+  },
+  {
+    "query": "Add another testimonial to the carousel",
+    "should_trigger": false
+  },
+  {
+    "query": "Create a new portfolio section for talks",
+    "should_trigger": false
+  },
+  { "query": "Change the site's JSON-LD job title", "should_trigger": false }
+]

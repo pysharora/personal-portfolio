@@ -1,0 +1,11 @@
+# Canonical content locations for the portfolio-content skill
+contact: data/contact.ts
+portfolio: data/portfolio.ts
+skills: data/skills.ts
+testimonials: data/testimonials.ts
+hero: app/components/sections/hero.tsx
+contact_section: app/components/sections/contact.tsx
+metadata: app/layout.tsx
+structured_data: app/page.tsx
+cv: public/Piyush-Arora-CV.pdf
+portrait: public/piyush-portrait-optimized.jpg

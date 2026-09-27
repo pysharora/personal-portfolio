@@ -1,0 +1,24 @@
+[
+  {
+    "query": "Add this new LinkedIn recommendation to the portfolio",
+    "should_trigger": true
+  },
+  {
+    "query": "Update my current role and employment dates",
+    "should_trigger": true
+  },
+  {
+    "query": "Replace my CV PDF and keep the download links working",
+    "should_trigger": true
+  },
+  {
+    "query": "Rewrite the hero copy to sound more product-minded",
+    "should_trigger": true
+  },
+  { "query": "Create a new case studies page", "should_trigger": false },
+  { "query": "Change the mobile breakpoint to 768px", "should_trigger": false },
+  {
+    "query": "Fix carousel autoplay when reduced motion is enabled",
+    "should_trigger": false
+  }
+]
