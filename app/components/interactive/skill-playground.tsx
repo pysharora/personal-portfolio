@@ -40,41 +40,44 @@ const SkillPlayground = () => {
         </div>
       </div>
 
-      <div className="skill-scenes" role="tablist" aria-label="Skill areas">
-        {skillScenes.map((scene, index) => {
-          const isActive = activeSceneIndex === index;
+      <div className="skill-scene-picker">
+        <p className="skill-scenes-hint">Choose an area to explore</p>
+        <div className="skill-scenes" role="tablist" aria-label="Skill areas">
+          {skillScenes.map((scene, index) => {
+            const isActive = activeSceneIndex === index;
 
-          return (
-            <button
-              aria-controls="skill-console-output"
-              aria-selected={isActive}
-              className="skill-scene"
-              id={`skill-tab-${index}`}
-              key={scene.eyebrow}
-              onClick={() => setActiveSceneIndex(index)}
-              onFocus={() => setActiveSceneIndex(index)}
-              onMouseEnter={() => setActiveSceneIndex(index)}
-              role="tab"
-              type="button"
-            >
-              <div>
-                <p>{scene.eyebrow}</p>
-                <h3>{scene.title}</h3>
-                <span>{scene.detail}</span>
-              </div>
-              <ul>
-                {scene.tags.map((tag) => (
-                  <li key={tag}>{tag}</li>
-                ))}
-              </ul>
-              <code id={isActive ? "skill-console-output" : undefined}>
-                {scene.code.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </code>
-            </button>
-          );
-        })}
+            return (
+              <button
+                aria-controls="skill-console-output"
+                aria-selected={isActive}
+                className="skill-scene"
+                id={`skill-tab-${index}`}
+                key={scene.eyebrow}
+                onClick={() => setActiveSceneIndex(index)}
+                onFocus={() => setActiveSceneIndex(index)}
+                onMouseEnter={() => setActiveSceneIndex(index)}
+                role="tab"
+                type="button"
+              >
+                <div>
+                  <p>{scene.eyebrow}</p>
+                  <h3>{scene.title}</h3>
+                  <span>{scene.detail}</span>
+                </div>
+                <ul>
+                  {scene.tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+                <code id={isActive ? "skill-console-output" : undefined}>
+                  {scene.code.map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </code>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

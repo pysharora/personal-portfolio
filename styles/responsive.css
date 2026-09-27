@@ -155,6 +155,17 @@
     padding-top: 32px;
   }
 
+  .hero-top {
+    align-items: flex-start;
+  }
+
+  .eyebrow {
+    max-width: 100%;
+    flex-wrap: wrap;
+    font-size: 0.52rem;
+    letter-spacing: 0.05em;
+  }
+
   .hero-heading-wrap {
     max-width: 100%;
     margin: 30px 0 128px;
@@ -162,7 +173,7 @@
 
   h1 {
     max-width: 100%;
-    font-size: 3.1rem;
+    font-size: clamp(1.75rem, 7.6vw, 3.1rem);
     line-height: 0.82;
     letter-spacing: -0.025em;
     word-spacing: 0.04em;
