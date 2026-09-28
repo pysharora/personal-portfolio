@@ -60,7 +60,3 @@ To release, tag the commit tested in QA:
 git tag v1.0.0 <commit-sha>
 git push origin v1.0.0
 ```
-
-The workflows use GitHub environments `qa` and `production`, with repository
-secrets `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID`. Build settings
-are defined in `vercel.json`; automatic Vercel Git deployments are disabled.
