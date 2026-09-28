@@ -16,7 +16,7 @@ const SkillCard = ({
       <div className="skill-card-top">
         <span className="skill-number">0{index + 1}</span>
         <span className="skill-mark text-symbol" aria-hidden="true">
-          {"↘\uFE0E"}
+          {"✳\uFE0E"}
         </span>
       </div>
       <h3>{title}</h3>
