@@ -33,6 +33,8 @@ This is one small application, not a monorepo. `turbo.json` exists, but package 
 - `lib/`: shared utilities.
 - `public/`: fonts, portrait, and CV.
 
+The site is intentionally compact today, but it should scale by confirmed need: add typed content and focused components first, then introduce new routes, external content sources, persistence, or integrations only when a real requirement justifies them. BMAD planning is available for those larger phases without forcing extra runtime architecture into the current app.
+
 ## Next.js 16 and React 19
 
 - Before editing Next.js code, read the relevant guide in `node_modules/next/dist/docs/`; the managed block in `AGENTS.md` requires this.
@@ -133,6 +135,8 @@ There is no automated test script or configured test framework. Do not claim tes
 - `README.md`: human setup, structure, checks, and release instructions.
 - `AGENTS.md`: product intent, project conventions, runtime, and managed Next.js notice.
 - `CLAUDE.md`: Claude entry point and resource routing.
+- `.claude/commands/bmad-*.md`: gated discovery, architecture, implementation, and delivery workflow for larger initiatives.
+- `.claude/commands/ralph.md`: agent-team implementation with bounded context, exclusive ownership, and acceptance validation.
 
 Link to these sources instead of duplicating their full contents in skills.
 

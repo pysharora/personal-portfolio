@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   checks:
-    name: Format, types, and build (Node 24)
+    name: Format, lint, types, and build (Node 24)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -26,5 +26,6 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm format:check
+      - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm build

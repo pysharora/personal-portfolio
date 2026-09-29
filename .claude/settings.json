@@ -1,0 +1,31 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CONTEXT_COMPACT_THRESHOLD": "75"
+  },
+  "permissions": {
+    "allow": [
+      "Read(app/**)",
+      "Read(data/**)",
+      "Read(styles/**)",
+      "Read(lib/**)",
+      "Read(public/**)",
+      "Read(.github/**)",
+      "Read(.claude/**)",
+      "Bash(pnpm lint*)",
+      "Bash(pnpm typecheck*)",
+      "Bash(pnpm format:check*)",
+      "Bash(pnpm build*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(secrets/**)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)"
+    ]
+  }
+}

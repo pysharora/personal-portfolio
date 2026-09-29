@@ -8,3 +8,9 @@ out/
 
 # Local planning and progress notes
 .local/
+
+# Claude/BMAD working artifacts
+.claude/output/
+.claude/memory/
+.claude/worktrees/
+.claude/ralph-prd.json

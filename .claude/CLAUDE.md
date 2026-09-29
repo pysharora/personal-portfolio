@@ -1,5 +1,17 @@
 # Portfolio Agent Guide
 
+## Workflow selection
+
+- Use `/quick-dev` for a bounded change that follows established patterns.
+- Use `/quick-spec` when the user wants a lightweight plan first.
+- Use `/ralph` for an approved, multi-task implementation with independent workstreams.
+- Use `/bmad-run` for major redesigns, multiple features, new integrations, persistence, or architecture changes.
+- Use `/bmad-help` to inspect artifacts and recommend the next step.
+
+Full BMAD sequence:
+
+`Principles (optional) -> Break -> Clarify -> UX (when relevant) -> Model -> Analyze -> Checklist -> GSD Prep -> Act/Ralph -> Deliver`
+
 ## Start here
 
 1. Read root `AGENTS.md` for product intent and the managed Next.js requirement.
@@ -21,6 +33,8 @@
 | Review a diff                                              | `skills/code-reviewer/SKILL.md` or `/review`             |
 | Prepare a QA or production release                         | `skills/release-deployment/SKILL.md` or `/release-check` |
 | Maintain this setup                                        | `skills/agent-docs-maintenance/SKILL.md` or `/docs-sync` |
+
+BMAD commands write transient planning state to `.claude/output/`. Never skip user confirmation gates, and never create branches, commit, push, tag, or deploy without explicit authorization.
 
 ## Verified commands
 
