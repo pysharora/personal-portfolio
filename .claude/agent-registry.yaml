@@ -1,5 +1,54 @@
 # Hand-maintained registry for the portfolio's focused agents
 agents:
+  - name: product-owner
+    description: "Define portfolio user value, scope, content truth, priorities, and acceptance criteria for substantial initiatives"
+    model: inherit
+    skills:
+      - "portfolio-content"
+      - "seo-and-metadata"
+    interfaces:
+      produces:
+        - "problem definitions"
+        - "prioritized user stories"
+        - "acceptance criteria"
+      consumes:
+        - "user brief"
+        - "AGENTS.md"
+        - ".claude/docs-index.md"
+  - name: architect
+    description: "Design the smallest maintainable architecture that meets confirmed portfolio requirements and preserves future growth paths"
+    model: inherit
+    skills:
+      - "nextjs-feature"
+      - "interactive-component"
+      - "quality-gate"
+    interfaces:
+      produces:
+        - "architecture decisions"
+        - "dependency-ordered backlog"
+        - "risk assessment"
+      consumes:
+        - "problem definition"
+        - "project principles"
+        - "source code"
+  - name: tech-lead
+    description: "Coordinate contracts, implementation rounds, validation, and delivery for multi-task portfolio changes"
+    model: inherit
+    skills:
+      - "nextjs-feature"
+      - "code-reviewer"
+      - "quality-gate"
+      - "release-deployment"
+    interfaces:
+      produces:
+        - "implementation coordination"
+        - "acceptance evidence"
+        - "delivery report"
+      consumes:
+        - "architecture"
+        - "backlog"
+        - "context packs"
+        - "source code"
   - name: portfolio-engineer
     description: "Activate for focused Next.js feature work, content integration, interactive behavior, or implementation trade-offs in the personal portfolio"
     model: inherit
