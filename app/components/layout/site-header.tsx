@@ -1,6 +1,7 @@
 import { Briefcase, FileText, Link2, Mail } from "lucide-react";
 import Link from "next/link";
 import { contactHref, cvHref } from "@/data/contact";
+import { HeaderNav } from "./header-nav";
 import { MobileMenu } from "./mobile-menu";
 import { ThemeSelect } from "./theme-select";
 
@@ -14,14 +15,7 @@ const SiteHeader = () => {
         <p>Full-stack product engineer</p>
       </div>
 
-      <nav className="header-nav" aria-label="Primary navigation">
-        <a href="#intro">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#recent-work">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#testimonials">Kind words</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <HeaderNav />
 
       <div className="header-actions">
         <ThemeSelect />
