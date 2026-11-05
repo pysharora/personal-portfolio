@@ -17,8 +17,8 @@ const RecentWork = () => {
       <div className="section-copy">
         <h2 id="recent-work-title" className="section-title">
           Work samples,
-          <span> screenshots </span>
-          coming soon.
+          <span> client and </span>
+          solo-built.
         </h2>
         <ul className="fit-strip" aria-label="Best fit for">
           {bestFit.map((item) => (

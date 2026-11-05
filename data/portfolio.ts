@@ -3,6 +3,8 @@ export type WorkSample = {
   meta: string;
   visual: string;
   description: string;
+  image?: string;
+  href?: string;
 };
 
 export type ExperienceEntry = {
@@ -15,6 +17,15 @@ export type ExperienceEntry = {
 };
 
 export const recentWork: readonly WorkSample[] = [
+  {
+    title: "Slow Days Archive",
+    meta: "Solo build / work in progress",
+    visual: "Storefront · owner studio · checkout",
+    description:
+      "A paper-goods storefront I'm building solo on Next.js 16, Postgres, and Better Auth. Razorpay checkout, Shipmozo shipping, an admin studio I wrote myself. Most of the real work is the boring part: making sure a retried payment can't double-charge someone.",
+    image: "/work/slow-days-archive.jpg",
+    href: "https://slowdaysarchive.vercel.app",
+  },
   {
     title: "Enterprise retail tools",
     meta: "AdeptMind / SaaS",
@@ -35,6 +46,8 @@ export const recentWork: readonly WorkSample[] = [
     visual: "Campaign pages · analytics · post-login UI",
     description:
       "Lead-focused pages, post-login product UI, analytics hooks, and React modules for education products.",
+    image: "/work/myclassroom-myseat.jpg",
+    href: "https://myclassroom.digital/MyClass/MySeat",
   },
 ] as const;
 
@@ -43,6 +56,7 @@ export const bestFit = [
   "MVPs that need taste + momentum",
   "Internal tools and dashboards",
   "Auth, APIs, and platform cleanup",
+  "0→1 builds, owned end to end",
 ] as const;
 
 export const experience: readonly ExperienceEntry[] = [

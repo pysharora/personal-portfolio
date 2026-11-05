@@ -331,6 +331,22 @@ footer {
     box-shadow 160ms ease;
 }
 
+.header-nav a[aria-current="true"] {
+  position: relative;
+  color: var(--pink);
+  font-weight: 700;
+}
+
+.header-nav a[aria-current="true"]::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  left: 10px;
+  height: 2px;
+  background: var(--pink);
+}
+
 .header-nav a:hover,
 .header-pill:hover {
   background: var(--green);
@@ -941,6 +957,11 @@ h1 {
   filter: grayscale(1) saturate(0) contrast(1.03);
 }
 
+:root[data-theme="grayscale"] .work-visual--photo {
+  -webkit-filter: grayscale(1) saturate(0) contrast(1.03);
+  filter: grayscale(1) saturate(0) contrast(1.03);
+}
+
 .portrait-card figcaption {
   display: grid;
   gap: 4px;
@@ -1129,16 +1150,26 @@ h1 {
 
 .section-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: clamp(45px, 6vw, 80px);
   border-block: 1px solid var(--line-strong);
 }
 
 .work-card {
   min-height: 420px;
-  padding: 23px;
+  padding: 32px;
   border-right: 1px solid var(--line-strong);
   background: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+.work-card:nth-child(2n) {
+  border-right: 0;
+}
+
+.work-card:nth-child(n + 3) {
+  border-top: 1px solid var(--line-strong);
 }
 
 .work-visual {
@@ -1178,6 +1209,26 @@ h1 {
   background: var(--pink-soft);
 }
 
+.work-visual--photo {
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  background-image: none;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  transition: transform 220ms ease;
+}
+
+a.work-card:hover .work-visual--photo,
+a.work-card:focus-visible .work-visual--photo {
+  transform: scale(1.035);
+}
+
+.work-visual--photo::before,
+.work-visual--photo::after {
+  display: none;
+}
+
 .work-visual span {
   position: relative;
   z-index: 1;
@@ -1194,10 +1245,6 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   transform: rotate(-2deg);
-}
-
-.work-card:last-child {
-  border-right: 0;
 }
 
 .work-card p {
@@ -1223,6 +1270,34 @@ h1 {
   font-size: 0.98rem;
   line-height: 1.5;
   letter-spacing: -0.015em;
+}
+
+.work-card .work-card-visit {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 16px;
+  padding: 5px 10px;
+  border: 1px solid var(--line-strong);
+  background: var(--green);
+  color: #17191d;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+a.work-card:hover .work-card-visit,
+a.work-card:focus-visible .work-card-visit {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .experience-list {
@@ -2052,6 +2127,7 @@ button:focus-visible {
 
   .work-card {
     border-right: 0;
+    border-top: 0;
     border-bottom: 1px solid var(--line-strong);
   }
 
