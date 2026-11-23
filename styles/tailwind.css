@@ -2,15 +2,11 @@
 @import "tailwindcss/utilities" layer(utilities);
 
 @theme inline {
-  --font-sans: "Bricolage Grotesque", sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-mono: "Geist Mono", monospace;
-  --color-background: var(--paper);
+  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-display: var(--font-poster), Impact, sans-serif;
+  --color-background: var(--bg);
   --color-foreground: var(--ink);
-  --color-primary: var(--ink);
-  --color-primary-foreground: var(--paper);
-  --color-secondary: var(--paper-strong);
-  --color-secondary-foreground: var(--ink);
+  --color-accent: var(--acc);
   --color-border: var(--line);
-  --color-ring: var(--pink);
+  --color-ring: var(--acc);
 }

@@ -15,8 +15,9 @@ globs: ["app/**/*.tsx", "styles/**/*.css"]
 
 - All controls must work by keyboard and retain a visible `:focus-visible` state.
 - Do not encode state through color alone.
-- Preserve Escape handling and `aria-expanded`/`aria-controls` for the mobile menu.
-- Preserve carousel region, slide labelling, manual controls, and the live slide count.
+- Preserve `aria-expanded`/`aria-controls` and the `inert` collapsed panels in the experience accordion.
+- Preserve the quote carousel's labelled scroll region, manual controls, and live count.
+- Keep `aria-pressed` on the engineer/PM switch and on the wordmark that toggles the print theme.
 
 ## Motion and responsive behavior
 

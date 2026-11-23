@@ -1,16 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const getSiteUrl = () => {
-  const configuredUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
-    process.env.VERCEL_URL;
-
-  if (!configuredUrl) return undefined;
-  return configuredUrl.startsWith("http")
-    ? configuredUrl
-    : `https://${configuredUrl}`;
-};
+import { getSiteUrl } from "@/lib/site-url";
 
 const robots = (): MetadataRoute.Robots => {
   const siteUrl = getSiteUrl();

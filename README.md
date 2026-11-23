@@ -1,7 +1,8 @@
 # Personal portfolio
 
-My personal website, built with Next.js, React, TypeScript, and Tailwind CSS.
-Includes light, dark, grayscale, and system themes.
+My personal website, built with Next.js, React, and TypeScript. The homepage is
+a big-type poster that flips between an Engineer and a PM side, plus a hidden
+newsprint "print" theme.
 
 ## Development
 
@@ -21,16 +22,14 @@ Keep the repository organized by responsibility as the site grows:
 
 - `app/` contains Next.js routes, the root layout, and route-level metadata.
 - `app/components/layout/` contains shared site chrome such as the header, footer,
-  mobile navigation, and theme controls.
+  the engineer/PM switch, and the mode provider.
 - `app/components/sections/` contains the major page sections.
-- `app/components/interactive/` contains client-side experiences such as the
-  skills playground, testimonial carousel, and mouse effects.
-- `app/components/cards/` contains reusable content cards.
-- `app/components/ui/` contains small reusable UI primitives.
+- `app/components/interactive/` contains client-side behaviour such as the animated
+  headline, scroll reveals, the quote carousel, and the experience accordion.
 - `data/` contains portfolio content and contact data, separate from presentation.
 - `styles/` contains global stylesheets and responsive or motion-specific styles.
 - `lib/` contains shared utilities.
-- `public/` contains static assets such as images, fonts, and the CV.
+- `public/` contains static assets such as images, the OG image, and both CVs.
 
 Add new files to the folder that matches their responsibility. Keep route files
 and global styles at the top level of `app/`, and avoid putting content data or

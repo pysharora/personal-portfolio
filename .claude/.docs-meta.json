@@ -1,16 +1,14 @@
 {
-  "generated_at": "2026-09-27T00:00:00+05:30",
+  "generated_at": "2026-11-21T00:00:00+05:30",
   "dependency_hash": "manual-refresh",
   "detected_stack": [
     "node-24",
     "pnpm-12.5.1",
     "typescript-6",
-    "nextjs-16.3.5",
+    "nextjs-16.4.6",
     "react-19",
     "tailwind-4",
-    "radix-ui",
-    "class-variance-authority",
-    "embla-carousel",
+    "next-font-google",
     "vercel-analytics",
     "vercel",
     "github-actions"

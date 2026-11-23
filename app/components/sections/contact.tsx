@@ -1,45 +1,60 @@
-import { contactHref, cvHref } from "@/data/contact";
+import Image from "next/image";
+import { calendlyHref, contactHref, linkedinHref } from "@/data/contact";
 
 const Contact = () => {
   return (
     <section
+      className="poster-band"
       id="contact"
-      className="contact-section"
       aria-labelledby="contact-title"
     >
-      <p className="index">
-        06 / HAVE
-        <br />A PROJECT?
-      </p>
-
-      <div className="contact-panel">
-        <h2 id="contact-title">
-          Building something that deserves <span>thoughtful</span> engineering?
-        </h2>
-        <p>
-          I’m a strong fit for product-minded engineering roles and focused
-          builds where clear UX, reliable systems, and steady progress all
-          matter.
-        </p>
-        <div className="hero-links">
-          <a className="text-link text-link-secondary" href={contactHref}>
-            Email me
-            <span className="text-symbol" aria-hidden="true">
-              {"↗\uFE0E"}
-            </span>
-          </a>
-          <a
-            className="text-link"
-            href={cvHref}
-            target="_blank"
-            rel="noreferrer"
+      <div className="poster-wrap contact">
+        <div className="contact-copy">
+          <h2
+            className="poster-display contact-title reveal"
+            id="contact-title"
           >
-            Open CV
-            <span className="text-symbol" aria-hidden="true">
-              {"↗\uFE0E"}
-            </span>
-          </a>
+            Got an idea, or a role <mark>in mind?</mark>
+          </h2>
+
+          <p className="contact-lead reveal">
+            A messy idea is usually enough to start. Pick a time that works for
+            you.
+          </p>
+
+          <div className="poster-btns reveal">
+            <a
+              className="poster-btn is-solid"
+              href={calendlyHref}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Book a 30-min call
+            </a>
+            <a className="poster-btn" href={contactHref}>
+              Email me
+            </a>
+            <a
+              className="poster-btn"
+              href={linkedinHref}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
+
+        <figure className="photo reveal">
+          <Image
+            src="/piyush-portrait.jpg"
+            alt="Portrait of Piyush Arora"
+            width={800}
+            height={1000}
+            sizes="(max-width: 800px) 86vw, 380px"
+          />
+          <figcaption>That&apos;s me. Hi.</figcaption>
+        </figure>
       </div>
     </section>
   );

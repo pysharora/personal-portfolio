@@ -7,35 +7,35 @@ globs: ["styles/**/*.css", "app/layout.tsx", "app/components/**/*.tsx"]
 
 Keep stylesheet imports in `app/layout.tsx` in this order:
 
-1. `fonts.css`
-2. `tailwind.css`
-3. `globals.css`
-4. `testimonials.css`
-5. `motion.css`
-6. `safari.css`
-7. `responsive.css`
+1. `tailwind.css`
+2. `globals.css`
+3. `motion.css`
+4. `safari.css`
+5. `responsive.css`
+
+Anton and Inter Tight load through `next/font/google` in `app/layout.tsx`, not a
+`@font-face` stylesheet.
 
 Do not auto-sort them. Next.js production builds derive CSS ordering from import order.
 
 - Use semantic global classes for page-level sections and bespoke editorial visuals.
-- Use Tailwind/CVA for reusable UI primitives following `Button` and `Badge`.
 - Reuse existing CSS variables before introducing a new token.
-- Put broad layout and component styles in `globals.css`, testimonial-only rules in `testimonials.css`, animations in `motion.css`, WebKit compatibility in `safari.css`, and final breakpoint overrides in `responsive.css`.
+- Put broad layout and component styles in `globals.css`, motion in `motion.css`, WebKit compatibility in `safari.css`, and final breakpoint overrides in `responsive.css`.
 
 ## Theme contract
 
-- Preserve `light`, `dark`, `system`, and `grayscale`.
-- Keep theme validation synchronized across `app/layout.tsx`, `theme-provider.tsx`, and `theme-select.tsx`.
-- Keep the `portfolio-theme` storage key stable unless migration is part of the request.
-- Maintain color contrast and intentional grayscale behavior, including the portrait filter.
+- Preserve the `engineer` and `pm` modes and the hidden `print` theme.
+- Themes are CSS variables on `<body>` classes (`pm`, `print`); the inline script in `app/layout.tsx` sets them before paint and `lib/mode-store.ts` is the runtime source of truth.
+- Keep the `mode` and `print` storage keys stable unless migration is part of the request.
+- Maintain colour contrast in all three themes, including the newsprint portrait filter.
 
 ## Responsive and motion
 
-- The desktop header switches to mobile navigation at 1200px.
-- Existing tablet and phone behavior uses 900px and 700px boundaries.
+- The header nav collapses at 900px, where the work and quote rows become swipe rows.
+- Further breakpoints are 1024px, 700px, 600px, and 480px.
 - Preserve reduced-motion, coarse-pointer, and Safari fallbacks.
-- Verify all four themes at representative desktop and mobile widths after theme or token changes.
+- Verify engineer, PM, and print at representative desktop and mobile widths after theme or token changes.
 
 ## Visual direction
 
-Protect the premium editorial character: warm paper tones, expressive typography, restrained blue/green/pink accents, crisp borders, and deliberate asymmetry. Avoid generic SaaS cards, gradients, excessive rounding, or decorative noise unless explicitly requested.
+Protect the poster character: giant Anton headlines, one idea per band, hard 2-3px rules, a single accent per theme (orange for engineer, cobalt for PM, ink for print), and deliberate tilt on the highlight blocks. Avoid generic SaaS cards, gradients, excessive rounding, or decorative noise unless explicitly requested.
