@@ -58,7 +58,6 @@ body.js .reveal.is-revealed {
 }
 
 .poster-nav a,
-.poster-foot-links a,
 .mode-switch button {
   transition: color 0.3s;
 }
