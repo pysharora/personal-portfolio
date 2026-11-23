@@ -62,12 +62,13 @@ export const modeGateHalves = {
   pm: {
     kicker: "Show me the",
     word: "PM",
+    expand: "Product Manager",
     peek: [
       "Roadmaps, sprints and stakeholders",
       "MBA in IT Project Management",
       "PM CV",
     ],
-    srLabel: "Enter as PM: roadmaps, delivery, what I led.",
+    srLabel: "Enter as PM (Product Manager): roadmaps, delivery, what I led.",
     key: "P",
   },
 } as const;

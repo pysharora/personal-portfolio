@@ -78,7 +78,7 @@ body.js .reveal.is-revealed {
     color 0.2s;
 }
 
-.quote-arrow:not(:disabled):hover {
+.quote-arrow:hover {
   background: var(--ink);
   color: var(--bg);
 }
