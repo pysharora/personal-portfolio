@@ -6,7 +6,7 @@ import {
   linkedinHref,
   pmCvHref,
 } from "@/data/contact";
-import { ChangeViewButton } from "./change-view-button";
+import { ChangeViewButton } from "./ChangeViewButton";
 
 const SiteFooter = () => {
   return (

@@ -47,7 +47,7 @@ const Contact = () => {
 
         <figure className="photo reveal">
           <Image
-            src="/piyush-portrait.jpg"
+            src="/piyush.jpg"
             alt="Portrait of Piyush Arora"
             width={800}
             height={1000}

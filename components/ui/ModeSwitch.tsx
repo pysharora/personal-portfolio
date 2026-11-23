@@ -2,8 +2,8 @@
 
 import type { MouseEvent } from "react";
 import type { Mode } from "@/lib/mode";
-import { EngineerIcon, PmIcon } from "../ui/icons";
-import { useMode } from "./mode-provider";
+import { EngineerIcon, PmIcon } from "./Icons";
+import { useMode } from "@/context/ModeContext";
 
 /**
  * Two-button switch; the pill follows the body class, so CSS slides it.

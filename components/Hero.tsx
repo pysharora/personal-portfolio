@@ -1,8 +1,8 @@
 import { calendlyHref } from "@/data/contact";
 import { heroEyebrow, heroIntro, heroStats } from "@/data/hero";
 import type { Mode } from "@/lib/mode";
-import { CountUp } from "../interactive/count-up";
-import { HeroHeadline } from "../interactive/hero-headline";
+import { CountUp } from "./CountUp";
+import { HeroHeadline } from "./HeroHeadline";
 
 const modeAttribute: Record<Mode, "eng" | "pm"> = {
   engineer: "eng",

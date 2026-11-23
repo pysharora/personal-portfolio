@@ -1,6 +1,6 @@
 import { engineerCvHref, pmCvHref } from "@/data/contact";
 import { experience } from "@/data/portfolio";
-import { ExperienceItem } from "../interactive/experience-item";
+import { ExperienceItem } from "./ExperienceItem";
 
 const Experience = () => {
   return (

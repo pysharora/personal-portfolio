@@ -279,6 +279,11 @@ const ModeGate = () => {
             >
               <p className="kicker">{half.kicker}</p>
               <p className="word">{half.word}</p>
+              {"expand" in half && (
+                <p className="word-expand" aria-hidden="true">
+                  {half.expand}
+                </p>
+              )}
               <p className="line">
                 {words.map((word, index) => (
                   <span key={`${word.text}-${index}`}>

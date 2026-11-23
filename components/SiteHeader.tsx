@@ -1,5 +1,5 @@
-import { ModeSwitch } from "./mode-switch";
-import { PrintThemeName } from "./print-theme-name";
+import { ModeSwitch } from "./ui/ModeSwitch";
+import { PrintThemeName } from "./PrintThemeName";
 
 const navigation = [
   ["Kind words", "#words"],

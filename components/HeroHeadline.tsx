@@ -3,7 +3,7 @@
 import { useEffect, useRef, type CSSProperties } from "react";
 import { heroHeadline, heroHeadlineLead, type HeadlineLine } from "@/data/hero";
 import type { Mode } from "@/lib/mode";
-import { useMode } from "../layout/mode-provider";
+import { useMode } from "@/context/ModeContext";
 
 /** Splits copy into letters so they can rise in and stretch near the pointer. */
 const letters = (text: string, keyPrefix: string, offset: number) =>

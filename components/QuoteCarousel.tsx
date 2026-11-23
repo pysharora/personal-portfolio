@@ -7,14 +7,30 @@ type QuoteCarouselProps = {
   quotes: readonly Testimonial[];
 };
 
+const AUTOPLAY_DELAY_MS = 6000;
+
 /**
  * Scroll-snap carousel of recommendations: arrows or a swipe move between
- * quotes, and the live count keeps screen readers in step.
+ * quotes, both wrapping around at either end, and the live count keeps
+ * screen readers in step. Advances on its own every few seconds, pausing on
+ * hover, touch, or keyboard focus, and skipping entirely under reduced
+ * motion.
  */
 const QuoteCarousel = ({ quotes }: QuoteCarouselProps) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAtEnd, setIsAtEnd] = useState(false);
+  const activeIndexRef = useRef(activeIndex);
+  const isAtEndRef = useRef(isAtEnd);
+  const pausedRef = useRef(false);
+
+  useEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
+
+  useEffect(() => {
+    isAtEndRef.current = isAtEnd;
+  }, [isAtEnd]);
 
   const syncPosition = useCallback(() => {
     const track = trackRef.current;
@@ -35,7 +51,7 @@ const QuoteCarousel = ({ quotes }: QuoteCarouselProps) => {
     return () => window.removeEventListener("resize", syncPosition);
   }, [syncPosition]);
 
-  const scrollToIndex = (index: number) => {
+  const scrollToIndex = useCallback((index: number) => {
     const track = trackRef.current;
     if (!track) return;
 
@@ -48,10 +64,60 @@ const QuoteCarousel = ({ quotes }: QuoteCarouselProps) => {
         ? "auto"
         : "smooth",
     });
-  };
+  }, []);
+
+  const goNext = useCallback(() => {
+    // isAtEnd means the track is already scrolled as far right as it goes
+    // (fewer cards fit on screen than exist), so the "next" card can never
+    // become the leftmost one — asking to scroll to it just clamps in
+    // place. Loop back to the start instead.
+    scrollToIndex(isAtEndRef.current ? 0 : activeIndexRef.current + 1);
+  }, [scrollToIndex]);
+
+  const goPrev = useCallback(() => {
+    scrollToIndex(
+      activeIndexRef.current === 0
+        ? quotes.length - 1
+        : activeIndexRef.current - 1,
+    );
+  }, [scrollToIndex, quotes.length]);
+
+  useEffect(() => {
+    if (quotes.length < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const id = window.setInterval(() => {
+      if (pausedRef.current || document.hidden) return;
+      goNext();
+    }, AUTOPLAY_DELAY_MS);
+
+    return () => window.clearInterval(id);
+  }, [quotes.length, goNext]);
 
   return (
-    <div className="quotes">
+    <div
+      className="quotes"
+      onMouseEnter={() => {
+        pausedRef.current = true;
+      }}
+      onMouseLeave={() => {
+        pausedRef.current = false;
+      }}
+      onTouchStart={() => {
+        pausedRef.current = true;
+      }}
+      onTouchEnd={() => {
+        pausedRef.current = false;
+      }}
+      onFocus={() => {
+        pausedRef.current = true;
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+          pausedRef.current = false;
+        }
+      }}
+    >
       <div
         className="quote-track"
         ref={trackRef}
@@ -79,8 +145,7 @@ const QuoteCarousel = ({ quotes }: QuoteCarouselProps) => {
         <button
           type="button"
           className="quote-arrow"
-          onClick={() => scrollToIndex(activeIndex - 1)}
-          disabled={activeIndex === 0}
+          onClick={goPrev}
           aria-label="Previous recommendation"
         >
           <span aria-hidden="true">{"←"}</span>
@@ -88,8 +153,7 @@ const QuoteCarousel = ({ quotes }: QuoteCarouselProps) => {
         <button
           type="button"
           className="quote-arrow"
-          onClick={() => scrollToIndex(activeIndex + 1)}
-          disabled={isAtEnd}
+          onClick={goNext}
           aria-label="Next recommendation"
         >
           <span aria-hidden="true">{"→"}</span>

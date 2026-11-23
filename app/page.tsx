@@ -1,11 +1,11 @@
-import { ScrollReveal } from "./components/interactive/scroll-reveal";
-import { SiteFooter } from "./components/layout/site-footer";
-import { SiteHeader } from "./components/layout/site-header";
-import { Contact } from "./components/sections/contact";
-import { Experience } from "./components/sections/experience";
-import { Hero } from "./components/sections/hero";
-import { KindWords } from "./components/sections/kind-words";
-import { Work } from "./components/sections/work";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { Contact } from "@/components/Contact";
+import { Experience } from "@/components/Experience";
+import { Hero } from "@/components/Hero";
+import { KindWords } from "@/components/KindWords";
+import { Work } from "@/components/Work";
 
 const Home = () => {
   const personSchema = {

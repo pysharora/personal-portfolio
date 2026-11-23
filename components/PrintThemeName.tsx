@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useMode } from "./mode-provider";
+import { useMode } from "@/context/ModeContext";
 
 const TAP_WINDOW = 700;
 

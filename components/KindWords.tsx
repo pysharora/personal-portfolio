@@ -1,6 +1,6 @@
 import { linkedinHref } from "@/data/contact";
 import { testimonials } from "@/data/testimonials";
-import { QuoteCarousel } from "../interactive/quote-carousel";
+import { QuoteCarousel } from "./QuoteCarousel";
 
 const KindWords = () => {
   return (

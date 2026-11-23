@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { toolset, workSamples } from "@/data/portfolio";
-import { TiltCard } from "../interactive/tilt-card";
+import { TiltCard } from "./TiltCard";
 
 const Work = () => {
   return (
