@@ -1,6 +1,14 @@
 ---
 description: TypeScript, React, and file-placement conventions for portfolio application code
-globs: ["app/**/*.ts", "app/**/*.tsx", "data/**/*.ts", "lib/**/*.ts"]
+globs:
+  [
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/**/*.tsx",
+    "context/**/*.tsx",
+    "data/**/*.ts",
+    "lib/**/*.ts",
+  ]
 ---
 
 ## Pattern first
@@ -20,11 +28,9 @@ globs: ["app/**/*.ts", "app/**/*.tsx", "data/**/*.ts", "lib/**/*.ts"]
 
 ## Placement
 
-- Page sections: `app/components/sections/`.
-- Site chrome and theme controls: `app/components/layout/`.
-- Browser-driven behavior: `app/components/interactive/`.
-- Repeated content presentation: `app/components/cards/`.
-- Reusable primitives: `app/components/ui/` using the existing Radix/CVA pattern.
+- All page sections, site chrome, and browser-driven behavior: `components/` (PascalCase, one file per component).
+- Small shared pieces: `components/ui/`.
+- Engineer/PM mode context: `context/ModeContext.tsx`.
 - Portfolio facts and collection data: `data/`.
 - Shared non-component utilities: `lib/`.
 

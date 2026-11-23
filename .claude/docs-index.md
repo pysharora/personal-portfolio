@@ -3,7 +3,7 @@
 <!-- Curated guidance for the personal portfolio. -->
 <!-- Refresh manually with `.claude/commands/docs-sync.md`; dependency detection alone is insufficient. -->
 
-**Detected stack:** node 24, pnpm 12.5.1, typescript 6, next.js 16.4.x, react 19, tailwind 4, next/font, vercel analytics, vercel, github actions
+**Detected stack:** node 24, pnpm 12.5.1, typescript 6, next.js 16.4.x, react 19, next/font, vercel analytics, vercel, github actions
 
 | Category           | Technologies                                 |
 | ------------------ | -------------------------------------------- |
@@ -11,7 +11,7 @@
 | runtime            | Node.js 24+                                  |
 | package management | pnpm 12.5.1                                  |
 | web                | Next.js 16 App Router, React 19              |
-| UI                 | Semantic CSS, Tailwind CSS 4 tokens          |
+| UI                 | Semantic global CSS (no utility framework)   |
 | type               | Anton + Inter Tight via `next/font`          |
 | interaction        | CSS transitions, WAAPI, IntersectionObserver |
 | quality            | ESLint 9, strict TypeScript, Prettier 3      |
@@ -21,15 +21,15 @@
 
 ## Repository shape
 
-This is one small application, not a monorepo. `turbo.json` exists, but package scripts invoke tools directly.
+This is one small application, not a monorepo. There is no `turbo.json`; package scripts invoke tools directly.
 
-- `app/`: routes, metadata, root layout, and components.
-- `app/components/layout/`: site chrome, the engineer/PM switch, and the mode provider.
-- `app/components/sections/`: top-level homepage sections.
-- `app/components/interactive/`: narrow Client Components.
+- `app/`: routes, metadata, root layout.
+- `components/`: all presentational and interactive components, one file per component (PascalCase).
+- `components/ui/`: small shared pieces (`ModeSwitch`, `Icons`).
+- `context/`: `ModeContext.tsx` — the engineer/PM mode provider.
 - `data/`: typed portfolio content and contact constants.
 - `styles/`: global CSS split by concern.
-- `lib/`: mode constants, the mode store, small hooks, and the site URL helper.
+- `lib/`: mode constants, the mode store, the layout init scripts, small hooks, and the site URL helper.
 - `public/`: portrait, OG image, and both CVs.
 
 The site is intentionally compact today, but it should scale by confirmed need: add typed content and focused components first, then introduce new routes, external content sources, persistence, or integrations only when a real requirement justifies them. BMAD planning is available for those larger phases without forcing extra runtime architecture into the current app.
@@ -57,8 +57,8 @@ The page has two modes, `engineer` and `pm`, plus a hidden `print` theme.
 - `app/layout.tsx`: an inline script resolves `#pm`/`#engineer`, then `localStorage`, then engineer, and sets the `pm`/`print`/`js` classes on `<body>` before paint.
 - `lib/mode.ts`: mode type, storage keys, and theme colours used by the wipe.
 - `lib/mode-store.ts`: reads and writes the body classes; React subscribes through `useSyncExternalStore`.
-- `app/components/layout/mode-provider.tsx`: context plus the circular colour wipe (instant under reduced motion).
-- `app/components/layout/mode-switch.tsx` and `print-theme-name.tsx`: the switch and the three-tap wordmark.
+- `context/ModeContext.tsx`: context plus the circular colour wipe (instant under reduced motion).
+- `components/ui/ModeSwitch.tsx` and `components/PrintThemeName.tsx`: the switch and the three-tap wordmark.
 - `styles/globals.css`: theme variables, `[data-only]` visibility, and the CSS-driven switch pill.
 
 Storage keys are `mode` and `print`.
@@ -67,13 +67,12 @@ Storage keys are `mode` and `print`.
 
 Global styles are imported once from `app/layout.tsx` in cascade-sensitive order:
 
-1. `styles/tailwind.css`
-2. `styles/globals.css`
-3. `styles/motion.css`
-4. `styles/safari.css`
-5. `styles/responsive.css`
+1. `styles/globals.css`
+2. `styles/motion.css`
+3. `styles/safari.css`
+4. `styles/responsive.css`
 
-Do not auto-sort these imports. Semantic global classes style everything; Tailwind is kept only for its theme tokens. Breakpoints at 1024px, 900px, 700px, 600px, and 480px are intentional. Preserve reduced-motion, coarse-pointer, and Safari behavior.
+Do not auto-sort these imports. Semantic global classes style everything — there is no utility CSS framework. Breakpoints at 1024px, 900px, 700px, 600px, and 480px are intentional. Preserve reduced-motion, coarse-pointer, and Safari behavior.
 
 ## Accessibility
 
@@ -90,7 +89,7 @@ Do not auto-sort these imports. Semantic global classes style everything; Tailwi
 - Hero eyebrow, headline, intro, and stats live in `data/hero.ts`.
 - Work samples, the `SHOW_SLOW_DAYS` flag, and experience live in `data/portfolio.ts`.
 - Recommendations live in `data/testimonials.ts`; quotes are people's own words, never edited.
-- Assets: `public/piyush-portrait.jpg`, `public/og-image.png`, `public/cv-engineer.pdf`, `public/cv-pm.pdf`.
+- Assets: `public/piyush.jpg`, `public/og-image.png`, `public/cv-engineer.pdf`, `public/cv-pm.pdf`.
 - Keep writing polished, personal, specific, and product-minded. Avoid generic SaaS copy.
 
 ## SEO and site URLs

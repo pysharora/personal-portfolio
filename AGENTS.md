@@ -31,9 +31,9 @@ This repo is a personal portfolio for Piyush Arora.
 
 - app/page.tsx
 - app/layout.tsx
-- app/components/sections/hero.tsx
-- app/components/layout/site-header.tsx
-- app/components/layout/mode-provider.tsx
+- components/Hero.tsx
+- components/SiteHeader.tsx
+- context/ModeContext.tsx
 - styles/globals.css
 - data/hero.ts
 

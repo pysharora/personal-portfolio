@@ -1,17 +1,16 @@
 ---
-description: Global CSS, Tailwind, responsive, motion, font, and theme invariants
-globs: ["styles/**/*.css", "app/layout.tsx", "app/components/**/*.tsx"]
+description: Global CSS, responsive, motion, font, and theme invariants
+globs: ["styles/**/*.css", "app/layout.tsx", "components/**/*.tsx"]
 ---
 
 ## CSS architecture
 
 Keep stylesheet imports in `app/layout.tsx` in this order:
 
-1. `tailwind.css`
-2. `globals.css`
-3. `motion.css`
-4. `safari.css`
-5. `responsive.css`
+1. `globals.css`
+2. `motion.css`
+3. `safari.css`
+4. `responsive.css`
 
 Anton and Inter Tight load through `next/font/google` in `app/layout.tsx`, not a
 `@font-face` stylesheet.
@@ -25,8 +24,8 @@ Do not auto-sort them. Next.js production builds derive CSS ordering from import
 ## Theme contract
 
 - Preserve the `engineer` and `pm` modes and the hidden `print` theme.
-- Themes are CSS variables on `<body>` classes (`pm`, `print`); the inline script in `app/layout.tsx` sets them before paint and `lib/mode-store.ts` is the runtime source of truth.
-- Keep the `mode` and `print` storage keys stable unless migration is part of the request.
+- Themes are CSS variables on `<body>` classes (`pm`, `print`); the inline script in `lib/mode-init-scripts.ts` (run from `app/layout.tsx`) sets them before paint and `lib/mode-store.ts` is the runtime source of truth.
+- Mode itself is resolved only from the `?mode=` query param (never stored). Keep the `print` storage key stable unless migration is part of the request.
 - Maintain colour contrast in all three themes, including the newsprint portrait filter.
 
 ## Responsive and motion
