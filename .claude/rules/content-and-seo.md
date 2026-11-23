@@ -21,7 +21,7 @@ globs:
 
 ## Assets
 
-- Keep public URLs rooted at `/`; the CV path is `/Piyush-Arora-CV.pdf`.
+- Keep public URLs rooted at `/`; the CV paths are `/cv-engineer.pdf` and `/cv-pm.pdf`, and the social image is `/og-image.png`.
 - Optimize replacement images and fonts before committing them.
 - Do not remove or rename referenced assets without updating every caller.
 

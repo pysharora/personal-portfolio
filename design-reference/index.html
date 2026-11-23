@@ -1,0 +1,1201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Piyush Arora – Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* VOICE: loud, confident, few words. A person, not a template.
+   IDEA: a printed poster that flips between two sides: Engineer and PM.
+   PICTURE: the giant headline itself; its key word swaps with the switch.
+   COLOUR and TYPE: Engineer = ink + paper + signal orange; PM = paper + ink + cobalt; Print = newsprint. Anton + Inter Tight.
+   LAYOUT: full-bleed poster bands, one idea per band, stacking cleanly below 600px. */
+      :root {
+        color-scheme: light dark;
+      }
+      * {
+        box-sizing: border-box;
+        min-width: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 84px;
+      }
+      body {
+        margin: 0;
+        font:
+          17px/1.55 "Inter Tight",
+          system-ui,
+          sans-serif;
+        overflow-x: clip;
+        --bg: #0e0e0e;
+        --ink: #f3efe6;
+        --acc: #ff4a1c;
+        --soft: rgba(243, 239, 230, 0.72);
+        --line: rgba(243, 239, 230, 0.18);
+        background: var(--bg);
+        color: var(--ink);
+      }
+      body.pm {
+        --bg: #f3efe6;
+        --ink: #14161c;
+        --acc: #2a3bff;
+        --soft: rgba(20, 22, 28, 0.72);
+        --line: rgba(20, 22, 28, 0.16);
+      }
+      body.print {
+        --bg: #fbfaf7;
+        --ink: #111;
+        --acc: #111;
+        --soft: rgba(17, 17, 17, 0.7);
+        --line: rgba(17, 17, 17, 0.2);
+        background-image: radial-gradient(
+          rgba(0, 0, 0, 0.06) 1px,
+          transparent 1px
+        );
+        background-size: 5px 5px;
+      }
+      body.print mark {
+        background: none;
+        color: var(--ink);
+        text-decoration: underline 0.12em;
+        text-underline-offset: 0.08em;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--acc);
+        outline-offset: 3px;
+      }
+      .big {
+        font-family: Anton, Impact, sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: -0.005em;
+        line-height: 0.86;
+        margin: 0;
+      }
+      mark {
+        background: var(--acc);
+        color: var(--bg);
+        padding: 0 0.1em;
+        display: inline-block;
+        transform: rotate(-2deg);
+      }
+      .wrap {
+        max-width: 1360px;
+        margin: 0 auto;
+        padding-inline: max(5vw, 18px);
+      }
+      .band {
+        padding-block: clamp(56px, 9vw, 128px);
+        border-top: 3px solid var(--ink);
+      }
+      .label {
+        font-weight: 700;
+        font-size: 15px;
+        opacity: 0.75;
+        margin: 0 0 18px;
+      }
+
+      /* header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+      .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        min-height: 72px;
+        flex-wrap: wrap;
+        padding-block: 10px;
+      }
+      .name {
+        font:
+          400 26px/1 Anton,
+          sans-serif;
+        text-transform: uppercase;
+        background: none;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
+        padding: 6px 0;
+      }
+      nav.links {
+        display: flex;
+        gap: 26px;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      nav.links a {
+        text-decoration: none;
+      }
+      nav.links a:hover {
+        color: var(--acc);
+      }
+      .sw {
+        display: flex;
+        padding: 4px;
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        position: relative;
+      }
+      .sw button {
+        position: relative;
+        z-index: 1;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 0;
+        border-radius: 999px;
+        background: none;
+        color: var(--ink);
+        font:
+          800 14px "Inter Tight",
+          sans-serif;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+      .sw button[aria-pressed="true"] {
+        color: var(--bg);
+      }
+      .sw .pill {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        border-radius: 999px;
+        background: var(--ink);
+        transition:
+          transform 0.45s cubic-bezier(0.7, 0, 0.2, 1),
+          width 0.45s;
+      }
+      @media (max-width: 820px) {
+        nav.links {
+          display: none;
+        }
+      }
+
+      /* hero */
+      .hero {
+        padding-block: clamp(36px, 6vw, 80px) clamp(48px, 7vw, 96px);
+      }
+      .hero h1 {
+        font-size: clamp(64px, 15.5vw, 236px);
+      }
+      .line {
+        display: block;
+      }
+      .swap {
+        display: grid;
+      }
+      .swap .v {
+        grid-area: 1/1;
+        transition:
+          transform 0.7s cubic-bezier(0.7, 0, 0.2, 1),
+          opacity 0.5s;
+      }
+      body:not(.pm) .v.pm,
+      body.pm .v.eng {
+        opacity: 0;
+        transform: translateY(22%);
+        pointer-events: none;
+      }
+      body.pm .v.eng {
+        transform: translateY(-22%);
+      }
+      .ch {
+        display: inline-block;
+        transform-origin: 50% 100%;
+        transition: transform 0.25s ease-out;
+      }
+      .heroRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px 56px;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-top: clamp(24px, 4vw, 48px);
+      }
+      .heroRow p {
+        flex: 1 1 320px;
+        max-width: 560px;
+        margin: 0;
+        font-size: clamp(18px, 1.8vw, 22px);
+        font-weight: 500;
+      }
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 54px;
+        padding: 0 24px;
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 2px solid var(--ink);
+        transition:
+          transform 0.2s,
+          background 0.2s,
+          color 0.2s;
+      }
+      .btn.solid {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .btn:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 3px 3px 0 var(--acc);
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: clamp(40px, 6vw, 72px);
+        border-top: 3px solid var(--ink);
+      }
+      .stats div {
+        padding: 20px 20px 0 0;
+      }
+      .stats b {
+        display: block;
+        font:
+          400 clamp(40px, 5.5vw, 76px)/1 Anton,
+          sans-serif;
+        text-transform: uppercase;
+      }
+      .stats span {
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--soft);
+      }
+      @media (max-width: 600px) {
+        .stats {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .stats div {
+          padding: 16px 0;
+          border-bottom: 1px solid var(--line);
+        }
+      }
+
+      /* mode-only content */
+      body.pm [data-only="eng"],
+      body:not(.pm) [data-only="pm"] {
+        display: none;
+      }
+
+      /* quotes */
+      .quotes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 40px;
+      }
+      .q {
+        margin: 0;
+        padding: 28px;
+        border: 2px solid var(--ink);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 28px;
+      }
+      .q:nth-child(2) {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .q blockquote {
+        margin: 0;
+        font-size: clamp(20px, 1.9vw, 24px);
+        line-height: 1.35;
+        font-weight: 600;
+      }
+      .q figcaption {
+        font-size: 15px;
+      }
+      .q figcaption b {
+        display: block;
+      }
+      @media (max-width: 900px) {
+        .quotes {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          padding-bottom: 12px;
+        }
+        .q {
+          flex: 0 0 82%;
+          scroll-snap-align: start;
+        }
+      }
+
+      /* work */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 40px;
+        perspective: 1000px;
+      }
+      .card {
+        border: 2px solid var(--ink);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease-out;
+        transform-style: preserve-3d;
+        background: var(--bg);
+      }
+      .card .art {
+        aspect-ratio: 4/3;
+        display: flex;
+        align-items: flex-end;
+        padding: 22px;
+        background: var(--acc);
+        color: var(--bg);
+        overflow: hidden;
+      }
+      .card:nth-child(2) .art {
+        background: var(--ink);
+      }
+      .card .art span {
+        font:
+          400 clamp(64px, 8vw, 120px)/0.85 Anton,
+          sans-serif;
+        text-transform: uppercase;
+      }
+      .card .txt {
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .card small {
+        font-weight: 700;
+        font-size: 13px;
+        opacity: 0.7;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .card h3 {
+        margin: 0;
+        font:
+          400 30px/1 Anton,
+          sans-serif;
+        text-transform: uppercase;
+      }
+      .card p {
+        margin: 0;
+        color: var(--soft);
+      }
+      @media (max-width: 900px) {
+        .cards {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          padding-bottom: 12px;
+        }
+        .card {
+          flex: 0 0 82%;
+          scroll-snap-align: start;
+        }
+      }
+
+      /* experience */
+      .xp {
+        margin-top: 32px;
+        border-top: 3px solid var(--ink);
+      }
+      .item {
+        border-bottom: 1px solid var(--line);
+      }
+      .item button {
+        all: unset;
+        box-sizing: border-box;
+        width: 100%;
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: center;
+        padding: 24px 0;
+        min-height: 44px;
+      }
+      .item button:focus-visible {
+        outline: 3px solid var(--acc);
+      }
+      .item h3 {
+        margin: 0;
+        font:
+          400 clamp(30px, 4vw, 52px)/1 Anton,
+          sans-serif;
+        text-transform: uppercase;
+      }
+      .item .meta {
+        font-weight: 600;
+        color: var(--soft);
+        font-size: 15px;
+        margin-top: 6px;
+      }
+      .item .yr {
+        font:
+          400 clamp(20px, 2.4vw, 30px)/1 Anton,
+          sans-serif;
+        color: var(--acc);
+        transition: transform 0.4s;
+        display: inline-block;
+      }
+      .item.open .yr {
+        transform: scale(1.6) translateX(-12%);
+      }
+      .item .plus {
+        width: 44px;
+        height: 44px;
+        border: 2px solid var(--ink);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 22px;
+        transition: transform 0.3s;
+      }
+      .item.open .plus {
+        transform: rotate(45deg);
+      }
+      .body {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.45s ease;
+      }
+      .item.open .body {
+        grid-template-rows: 1fr;
+      }
+      .body > div {
+        overflow: hidden;
+      }
+      .body ul {
+        margin: 0 0 26px;
+        padding-left: 1.2em;
+        max-width: 760px;
+        display: grid;
+        gap: 8px;
+      }
+      .cvRow {
+        margin-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+      .cvNote {
+        font-size: 14px;
+        color: var(--soft);
+      }
+
+      /* contact */
+      .contact {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+        gap: clamp(32px, 5vw, 72px);
+        align-items: center;
+      }
+      .contact h2 {
+        font-size: clamp(56px, 9vw, 150px);
+      }
+      .photo {
+        position: relative;
+        justify-self: center;
+        width: min(380px, 100%);
+        transform: rotate(3deg);
+        border: 2px solid var(--ink);
+        background: var(--bg);
+        padding: 12px 12px 52px;
+        box-shadow: 10px 10px 0 var(--acc);
+      }
+      .photo img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+      }
+      body.print .photo img {
+        filter: grayscale(1) contrast(1.1);
+      }
+      .photo figcaption {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 14px;
+        font:
+          400 22px/1 Anton,
+          sans-serif;
+        text-transform: uppercase;
+      }
+      @media (max-width: 800px) {
+        .contact {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      footer {
+        border-top: 3px solid var(--ink);
+        padding-block: 28px 40px;
+      }
+      .foot {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 28px;
+        justify-content: space-between;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .foot div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 24px;
+      }
+      .hint {
+        opacity: 0.55;
+        font-weight: 500;
+      }
+
+      /* reveal + wipe */
+      .js .rv {
+        opacity: 0;
+        transform: translateY(48px);
+        transition:
+          opacity 0.7s,
+          transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .js .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+      .wipe {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        pointer-events: none;
+        display: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+          animation: none !important;
+          scroll-behavior: auto !important;
+        }
+        .js .rv {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wipe" id="wipe"></div>
+    <header>
+      <div class="wrap bar">
+        <button
+          class="name"
+          id="name"
+          aria-label="Piyush Arora. Tap three times for a hidden theme"
+        >
+          Piyush Arora
+        </button>
+        <nav class="links" aria-label="Sections">
+          <a href="#words">Kind words</a><a href="#work">Work</a
+          ><a href="#experience">Experience</a><a href="#contact">Contact</a>
+        </nav>
+        <div class="sw" role="group" aria-label="Show me as">
+          <span class="pill" id="pill" aria-hidden="true"></span>
+          <button id="bEng" aria-pressed="true">ENGINEER</button>
+          <button id="bPm" aria-pressed="false">PM</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="wrap hero">
+        <p class="label">
+          <span data-only="eng">Full-stack engineer · India · Remote</span
+          ><span data-only="pm"
+            >Product &amp; delivery · MBA, IT Project Management</span
+          >
+        </p>
+        <h1 class="big" id="hl">
+          <span class="line">I build</span>
+          <span class="swap">
+            <span class="v eng"
+              ><span class="line">the thing</span
+              ><span class="line"><mark>right.</mark></span></span
+            >
+            <span class="v pm"
+              ><span class="line">the <mark>right</mark></span
+              ><span class="line">thing.</span></span
+            >
+          </span>
+        </h1>
+        <div class="heroRow">
+          <p>
+            <span data-only="eng"
+              >React, Next.js, Node and Postgres. Five years of shipping web
+              products that hold up when real people use them.</span
+            ><span data-only="pm"
+              >Roadmaps, sprints and stakeholders, with an engineer's sense of
+              what's actually buildable. MBA with distinction.</span
+            >
+          </p>
+          <div class="btns">
+            <a class="btn solid" href="#work">See my work</a>
+            <a class="btn" href="https://calendly.com/arorapiyush-arora/30min"
+              >Book a 30-min call</a
+            >
+          </div>
+        </div>
+        <div class="stats">
+          <div data-only="eng">
+            <b>5+ yrs</b><span>shipping web products</span>
+          </div>
+          <div data-only="eng">
+            <b>40+</b><span>enterprise clients served</span>
+          </div>
+          <div data-only="eng">
+            <b>Full stack</b><span>screens to servers</span>
+          </div>
+          <div data-only="pm">
+            <b>MBA</b><span>IT project management, distinction</span>
+          </div>
+          <div data-only="pm">
+            <b>Sprints</b><span>planned and run in Jira</span>
+          </div>
+          <div data-only="pm">
+            <b><span data-count="40">40</span>+</b
+            ><span>enterprise clients served</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="words">
+        <div class="wrap">
+          <h2 class="big rv" style="font-size: clamp(52px, 8vw, 128px)">
+            Kind <mark>words.</mark>
+          </h2>
+          <div class="quotes">
+            <figure class="q rv">
+              <blockquote>
+                “He has a strong eye for UI/UX and brings a good user-focused
+                perspective to the work.”
+              </blockquote>
+              <figcaption><b>Sonus Vareed</b>Product Manager</figcaption>
+            </figure>
+            <figure class="q rv">
+              <blockquote>
+                “A person I would gladly put in charge of large initiatives,
+                knowing full well no detail will be skipped.”
+              </blockquote>
+              <figcaption>
+                <b>Allan Legemaate</b>Lead Engineer, Catio
+              </figcaption>
+            </figure>
+            <figure class="q rv">
+              <blockquote>
+                “He always wanted to understand the bigger picture, how his work
+                would impact the company's larger goals.”
+              </blockquote>
+              <figcaption>
+                <b>Ryan Wilson</b>Solution Architect, Empire Life
+              </figcaption>
+            </figure>
+          </div>
+          <p style="margin-top: 22px">
+            <a
+              href="https://www.linkedin.com/in/pysharora"
+              style="font-weight: 700"
+              >Read all six on LinkedIn ↗</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="band" id="work">
+        <div class="wrap">
+          <h2 class="big rv" style="font-size: clamp(52px, 8vw, 128px)">
+            Things I've <mark>built.</mark>
+          </h2>
+          <div class="cards">
+            <article class="card rv">
+              <div class="art"><span>40+</span></div>
+              <div class="txt">
+                <small>AdeptMind · Retail SaaS</small>
+                <h3>Retail tools</h3>
+                <p data-only="eng">
+                  Search, onboarding and admin tools in React and Next.js, used
+                  by 40+ enterprise clients.
+                </p>
+                <p data-only="pm">
+                  Shaped with internal stakeholders and shipped through planned
+                  sprints, for 40+ enterprise clients.
+                </p>
+              </div>
+            </article>
+            <article class="card rv">
+              <div class="art"><span>Auth</span></div>
+              <div class="txt">
+                <small>AdeptMind · Platform</small>
+                <h3>Secure team logins</h3>
+                <p data-only="eng">
+                  Moved sign-in to Better Auth, with organisations, teams and
+                  audit logs.
+                </p>
+                <p data-only="pm">
+                  The quiet platform work that makes a product trustworthy for
+                  enterprise teams.
+                </p>
+              </div>
+            </article>
+            <article class="card rv">
+              <div class="art">
+                <span>JEE<br />NEET</span>
+              </div>
+              <div class="txt">
+                <small>Myclassroom · Growth</small>
+                <h3>Sign-up pages</h3>
+                <p data-only="eng">
+                  Campaign landing pages and React modules, wired to APIs and
+                  MoEngage analytics.
+                </p>
+                <p data-only="pm">
+                  Built around one goal: more students signing up, measured with
+                  analytics.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="experience">
+        <div class="wrap">
+          <h2 class="big rv" style="font-size: clamp(52px, 8vw, 128px)">
+            Experience.
+          </h2>
+          <div class="xp">
+            <div class="item">
+              <button aria-expanded="false" aria-controls="x1">
+                <div>
+                  <h3>Full Stack Engineer</h3>
+                  <div class="meta">
+                    AdeptMind · Remote, Toronto ·
+                    <span class="yr">2022 – now</span>
+                  </div>
+                </div>
+                <span class="plus" aria-hidden="true">+</span>
+              </button>
+              <div class="body" id="x1">
+                <div>
+                  <ul data-only="eng">
+                    <li>
+                      Features across search, onboarding and admin flows for
+                      enterprise retail clients.
+                    </li>
+                    <li>
+                      Migrated authentication to Better Auth with organisations,
+                      teams and audit logs.
+                    </li>
+                    <li>
+                      Rebuilt an internal tool from an end-of-life React version
+                      onto modern React.
+                    </li>
+                    <li>
+                      Built drag-and-drop interfaces and server-rendered pages
+                      in Next.js.
+                    </li>
+                  </ul>
+                  <ul data-only="pm">
+                    <li>Help plan the roadmap with internal stakeholders.</li>
+                    <li>
+                      Run sprint planning in Jira and track delivery on Kanban.
+                    </li>
+                    <li>Lead features end to end and mentor developers.</li>
+                    <li>Keep specs and decisions documented in Confluence.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <button aria-expanded="false" aria-controls="x2">
+                <div>
+                  <h3>SDE-1</h3>
+                  <div class="meta">
+                    Myclassroom · Noida · <span class="yr">2021 – 2022</span>
+                  </div>
+                </div>
+                <span class="plus" aria-hidden="true">+</span>
+              </button>
+              <div class="body" id="x2">
+                <div>
+                  <ul data-only="eng">
+                    <li>
+                      Built the post-login product interface and reusable React
+                      modules.
+                    </li>
+                    <li>
+                      Created lead-capture landing pages for AITS JEE and NEET
+                      campaigns.
+                    </li>
+                    <li>Integrated APIs and MoEngage analytics.</li>
+                  </ul>
+                  <ul data-only="pm">
+                    <li>
+                      Turned campaign goals into landing pages focused on
+                      sign-ups.
+                    </li>
+                    <li>
+                      Used analytics to see what students did after signing up.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <button aria-expanded="false" aria-controls="x3">
+                <div>
+                  <h3>MBA, IT Project Management</h3>
+                  <div class="meta">
+                    Amity University · First division with distinction ·
+                    <span class="yr">2023 – 2025</span>
+                  </div>
+                </div>
+                <span class="plus" aria-hidden="true">+</span>
+              </button>
+              <div class="body" id="x3">
+                <div>
+                  <ul>
+                    <li>
+                      Online degree, done on weekends alongside a full-time job.
+                    </li>
+                    <li>
+                      Final thesis: a survey on how teams manage projects.
+                    </li>
+                    <li>
+                      The business side of building: scope, people and
+                      tradeoffs.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cvRow">
+            <a class="btn solid" href="cv-engineer.pdf" data-only="eng"
+              >Download Engineer CV</a
+            >
+            <a class="btn solid" href="cv-pm.pdf" data-only="pm"
+              >Download PM CV</a
+            >
+            <span class="cvNote">The CV follows the switch.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="contact">
+        <div class="wrap contact">
+          <div>
+            <h2 class="big rv">Got an idea, or a role <mark>in mind?</mark></h2>
+            <p
+              class="rv"
+              style="
+                font-size: clamp(18px, 1.8vw, 22px);
+                font-weight: 500;
+                max-width: 520px;
+                margin: 28px 0;
+              "
+            >
+              A messy idea is usually enough to start. Pick a time that works
+              for you.
+            </p>
+            <div class="btns rv">
+              <a
+                class="btn solid"
+                href="https://calendly.com/arorapiyush-arora/30min"
+                >Book a 30-min call</a
+              ><a class="btn" href="https://www.linkedin.com/in/pysharora"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+          <figure class="photo rv">
+            <img
+              src="piyush.jpg"
+              alt="Piyush Arora smiling, in a navy blazer"
+            />
+            <figcaption>That's me. Hi.</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <span>© 2026 Piyush Arora</span>
+        <div>
+          <a href="cv-engineer.pdf">Engineer CV</a><a href="cv-pm.pdf">PM CV</a
+          ><a href="https://www.linkedin.com/in/pysharora">LinkedIn</a
+          ><a href="https://calendly.com/arorapiyush-arora/30min">Calendly</a>
+        </div>
+        <span class="hint"
+          >There's a third theme. Tap my name three times.</span
+        >
+      </div>
+    </footer>
+
+    <script>
+      {
+        const html = document.documentElement,
+          body = document.body;
+        html.classList.add("js");
+        const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const bEng = document.getElementById("bEng"),
+          bPm = document.getElementById("bPm"),
+          pill = document.getElementById("pill"),
+          wipe = document.getElementById("wipe");
+        const hl = document.getElementById("hl");
+
+        /* split headline into letters */
+        const split = (el) => {
+          for (const n of [...el.childNodes]) {
+            if (n.nodeType === 3) {
+              const f = document.createDocumentFragment();
+              for (const c of n.textContent) {
+                const s = document.createElement("span");
+                s.className = "ch";
+                s.textContent = c === " " ? " " : c;
+                s.setAttribute("aria-hidden", "true");
+                f.appendChild(s);
+              }
+              n.replaceWith(f);
+            } else if (n.nodeType === 1) split(n);
+          }
+        };
+        split(hl);
+
+        const setPill = () => {
+          const t = body.classList.contains("pm") ? bPm : bEng;
+          pill.style.width = t.offsetWidth + "px";
+          pill.style.transform = "translateX(" + (t.offsetLeft - 4) + "px)";
+        };
+        const apply = (mode) => {
+          const pm = mode === "pm";
+          body.classList.toggle("pm", pm);
+          bEng.setAttribute("aria-pressed", String(!pm));
+          bPm.setAttribute("aria-pressed", String(pm));
+          hl.setAttribute(
+            "aria-label",
+            pm ? "I build the right thing." : "I build the thing right.",
+          );
+          document
+            .querySelectorAll(".v")
+            .forEach((v) =>
+              v.setAttribute(
+                "aria-hidden",
+                String(v.classList.contains("pm") !== pm),
+              ),
+            );
+          setPill();
+          try {
+            localStorage.setItem("mode", mode);
+          } catch (e) {}
+        };
+        const go = (mode, btn) => {
+          if ((mode === "pm") === body.classList.contains("pm")) return;
+          if (reduce) {
+            apply(mode);
+            return;
+          }
+          const r = btn.getBoundingClientRect(),
+            x = r.left + r.width / 2,
+            y = r.top + r.height / 2;
+          const next =
+            mode === "pm"
+              ? body.classList.contains("print")
+                ? "#FBFAF7"
+                : "#F3EFE6"
+              : body.classList.contains("print")
+                ? "#FBFAF7"
+                : "#0E0E0E";
+          wipe.style.background = next;
+          wipe.style.display = "block";
+          wipe.style.opacity = "1";
+          const a = wipe.animate(
+            [
+              { clipPath: `circle(0px at ${x}px ${y}px)` },
+              { clipPath: `circle(150vmax at ${x}px ${y}px)` },
+            ],
+            { duration: 550, easing: "cubic-bezier(.7,0,.2,1)" },
+          );
+          a.onfinish = () => {
+            apply(mode);
+            const f = wipe.animate([{ opacity: 1 }, { opacity: 0 }], {
+              duration: 350,
+            });
+            f.onfinish = () => {
+              wipe.style.display = "none";
+            };
+          };
+        };
+        bEng.addEventListener("click", () => go("engineer", bEng));
+        bPm.addEventListener("click", () => go("pm", bPm));
+
+        /* start mode: #pm or #engineer in the link, else remembered, else engineer */
+        let start = "engineer";
+        try {
+          start = localStorage.getItem("mode") || start;
+        } catch (e) {}
+        const h = location.hash.slice(1);
+        if (h === "pm" || h === "engineer") start = h;
+        apply(start);
+        addEventListener("resize", setPill);
+        document.fonts && document.fonts.ready.then(setPill);
+
+        /* hidden print theme */
+        let taps = 0,
+          tapT;
+        document.getElementById("name").addEventListener("click", () => {
+          taps++;
+          clearTimeout(tapT);
+          tapT = setTimeout(() => (taps = 0), 700);
+          if (taps >= 3) {
+            taps = 0;
+            body.classList.toggle("print");
+            try {
+              localStorage.setItem(
+                "print",
+                body.classList.contains("print") ? "1" : "",
+              );
+            } catch (e) {}
+          }
+        });
+        try {
+          if (localStorage.getItem("print")) body.classList.add("print");
+        } catch (e) {}
+
+        /* letters stretch near the pointer */
+        if (!reduce && matchMedia("(pointer:fine)").matches) {
+          const chs = [...hl.querySelectorAll(".ch")];
+          hl.addEventListener("pointermove", (e) => {
+            for (const c of chs) {
+              const b = c.getBoundingClientRect();
+              if (!b.width) continue;
+              const d = Math.hypot(
+                e.clientX - (b.left + b.width / 2),
+                e.clientY - (b.top + b.height / 2),
+              );
+              const s = 1 + 0.22 * Math.max(0, 1 - d / 180);
+              c.style.transform = s > 1.001 ? `scaleY(${s.toFixed(3)})` : "";
+            }
+          });
+          hl.addEventListener("pointerleave", () =>
+            chs.forEach((c) => (c.style.transform = "")),
+          );
+        }
+        /* letters rise in on load */
+        if (!reduce) {
+          hl.querySelectorAll(".ch").forEach((c, i) =>
+            c.animate(
+              [
+                { transform: "translateY(60%)", opacity: 0 },
+                { transform: "none", opacity: 1 },
+              ],
+              {
+                duration: 600,
+                delay: i * 18,
+                easing: "cubic-bezier(.2,.7,.2,1)",
+                fill: "backwards",
+              },
+            ),
+          );
+        }
+
+        /* reveal on scroll + count up */
+        const countUp = (el) => {
+          const end = +el.dataset.count;
+          if (reduce) {
+            el.textContent = end;
+            return;
+          }
+          const t0 = performance.now();
+          const tick = (t) => {
+            const p = Math.min(1, (t - t0) / 900);
+            el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        };
+        const revealObs = new IntersectionObserver(
+          (es) => {
+            for (const e of es)
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                revealObs.unobserve(e.target);
+              }
+          },
+          { threshold: 0.15 },
+        );
+        document.querySelectorAll(".rv").forEach((el) => revealObs.observe(el));
+        const countObs = new IntersectionObserver(
+          (es) => {
+            for (const e of es)
+              if (e.isIntersecting) {
+                countUp(e.target);
+                countObs.unobserve(e.target);
+              }
+          },
+          { threshold: 0.6 },
+        );
+        document
+          .querySelectorAll("[data-count]")
+          .forEach((el) => countObs.observe(el));
+
+        /* tilt cards */
+        if (!reduce && matchMedia("(pointer:fine)").matches) {
+          document.querySelectorAll(".card").forEach((c) => {
+            c.addEventListener("pointermove", (e) => {
+              const b = c.getBoundingClientRect();
+              const x = (e.clientX - b.left) / b.width - 0.5,
+                y = (e.clientY - b.top) / b.height - 0.5;
+              c.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(0)`;
+            });
+            c.addEventListener("pointerleave", () => (c.style.transform = ""));
+          });
+        }
+
+        /* experience accordion */
+        document.querySelectorAll(".item > button").forEach((b) =>
+          b.addEventListener("click", () => {
+            const it = b.parentElement;
+            const open = !it.classList.contains("open");
+            it.classList.toggle("open", open);
+            b.setAttribute("aria-expanded", String(open));
+          }),
+        );
+      }
+    </script>
+  </body>
+</html>

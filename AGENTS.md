@@ -24,18 +24,18 @@ This repo is a personal portfolio for Piyush Arora.
 - Use modern React + TypeScript patterns with arrow-function components.
 - Prefer intentional design refinements over generic browser defaults.
 - Keep the tone polished and personal rather than overly casual or generic SaaS-like.
-- Preserve theme behavior: light, dark, grayscale, and system fallback.
+- Preserve mode behavior: the Engineer and PM themes plus the hidden print theme.
 - Avoid introducing noisy or cluttered sections unless the user explicitly asks for them.
 
 ## Files to review first
 
 - app/page.tsx
 - app/layout.tsx
-- app/components/sections/hero.tsx
-- app/components/layout/site-header.tsx
-- app/components/layout/theme-select.tsx
+- components/Hero.tsx
+- components/SiteHeader.tsx
+- context/ModeContext.tsx
 - styles/globals.css
-- data/skills.ts
+- data/hero.ts
 
 ## Runtime requirement
 

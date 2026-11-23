@@ -1,21 +1,20 @@
-import { SiteFooter } from "./components/layout/site-footer";
-import { SiteHeader } from "./components/layout/site-header";
-import { MouseGlow } from "./components/interactive/mouseglow";
-import { Contact } from "./components/sections/contact";
-import { Experience } from "./components/sections/experience";
-import { Hero } from "./components/sections/hero";
-import { RecentWork } from "./components/sections/recent-work";
-import { Skills } from "./components/sections/skills";
-import { Testimonials } from "./components/sections/testimonials";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { Contact } from "@/components/Contact";
+import { Experience } from "@/components/Experience";
+import { Hero } from "@/components/Hero";
+import { KindWords } from "@/components/KindWords";
+import { Work } from "@/components/Work";
 
 const Home = () => {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Piyush Arora",
-    jobTitle: "Product-minded Full-stack Engineer",
+    jobTitle: "Full-stack product engineer",
     description:
-      "Product-minded full-stack engineer and MBA graduate building thoughtful web products, reliable systems, and clear user experiences.",
+      "Full-stack engineer and MBA graduate building web products people actually use, from first idea to launch.",
     email: "mailto:arorapiyush.arora@gmail.com",
     sameAs: [
       "https://github.com/pysharora",
@@ -26,8 +25,9 @@ const Home = () => {
       "Next.js",
       "TypeScript",
       "Node.js",
-      "Python",
-      "Product development",
+      "Postgres",
+      "Product delivery",
+      "IT project management",
     ],
   };
 
@@ -37,21 +37,25 @@ const Home = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <MouseGlow />
-      <div className="scroll-progress" aria-hidden="true" />
-      <a className="skip-link" href="#main">
-        Skip to content
-      </a>
-      <SiteHeader />
-      <main id="main" tabIndex={-1}>
-        <Hero />
-        <Skills />
-        <RecentWork />
-        <Experience />
-        <Testimonials />
-        <Contact />
-      </main>
-      <SiteFooter />
+      {/* Wrapped so the mode gate can make this `inert` while it's up,
+          without hiding the real content from crawlers via `display: none`.
+          The inline script in app/layout.tsx sets `inert` before React
+          hydrates, same as the body classList mutations there. */}
+      <div id="site-content" suppressHydrationWarning>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        <SiteHeader />
+        <main id="main" tabIndex={-1}>
+          <Hero />
+          <Work />
+          <Experience />
+          <KindWords />
+          <Contact />
+        </main>
+        <SiteFooter />
+      </div>
+      <ScrollReveal />
     </>
   );
 };

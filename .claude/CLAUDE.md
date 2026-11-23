@@ -55,8 +55,8 @@ pnpm build
 ## Core decisions
 
 - Server Components are the default; isolate browser behavior behind narrow `"use client"` boundaries.
-- Static content belongs in `data/`; presentation belongs in `app/components/`.
-- Preserve the light, dark, grayscale, and system theme contract.
+- Static content belongs in `data/`; presentation belongs in `components/`.
+- Preserve the engineer/PM mode contract and the hidden print theme.
 - Preserve semantic HTML, keyboard operation, reduced motion, and visible focus states.
 - Preserve the editorial, warm-neutral, product-minded visual and writing direction.
 - Do not introduce a CMS, state framework, testing framework, or other architecture unless the task calls for it.

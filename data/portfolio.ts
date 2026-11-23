@@ -1,101 +1,142 @@
+import type { ModeCopy } from "@/lib/mode";
+
 export type WorkSample = {
-  title: string;
-  meta: string;
-  visual: string;
-  description: string;
-  image?: string;
-  href?: string;
+  readonly id: string;
+  readonly eyebrow: string;
+  readonly title: string;
+  /** Oversized poster type printed on the card art. */
+  readonly poster: readonly string[];
+  readonly description: ModeCopy;
+  readonly href?: string;
+  readonly linkLabel?: string;
 };
+
+export type ExperiencePoints =
+  | { readonly shared: readonly string[] }
+  | {
+      readonly engineer: readonly string[];
+      readonly pm: readonly string[];
+    };
 
 export type ExperienceEntry = {
-  role: string;
-  company: string;
-  location: string;
-  period: string;
-  detail: string;
-  points: readonly string[];
+  readonly id: string;
+  readonly role: string;
+  readonly meta: string;
+  readonly year: string;
+  readonly points: ExperiencePoints;
 };
 
-export const recentWork: readonly WorkSample[] = [
-  {
-    title: "Slow Days Archive",
-    meta: "Solo build / work in progress",
-    visual: "Storefront · owner studio · checkout",
-    description:
-      "A paper-goods storefront I'm building solo on Next.js 16, Postgres, and Better Auth. Razorpay checkout, Shipmozo shipping, an admin studio I wrote myself. Most of the real work is the boring part: making sure a retried payment can't double-charge someone.",
-    image: "/work/slow-days-archive.jpg",
-    href: "https://slowdaysarchive.vercel.app",
-  },
-  {
-    title: "Enterprise retail tools",
-    meta: "AdeptMind / SaaS",
-    visual: "Search UI · admin flows · client tooling",
-    description:
-      "Search, onboarding, admin flows, and internal tooling used across 40+ enterprise clients.",
-  },
-  {
-    title: "Auth + platform cleanup",
-    meta: "Security / SOC2",
-    visual: "Auth screens · audit logs · token admin",
-    description:
-      "Multi-tenant auth, audit logging, token lifecycle work, and the less glamorous bits that make products trustworthy.",
-  },
-  {
-    title: "Landing pages that pull their weight",
-    meta: "Myclassroom / growth",
-    visual: "Campaign pages · analytics · post-login UI",
-    description:
-      "Lead-focused pages, post-login product UI, analytics hooks, and React modules for education products.",
-    image: "/work/myclassroom-myseat.jpg",
-    href: "https://myclassroom.digital/MyClass/MySeat",
-  },
-] as const;
+/** Flip to false to pull the in-progress Slow Days Archive card off the page. */
+export const SHOW_SLOW_DAYS = true;
 
-export const bestFit = [
-  "SaaS product teams",
-  "MVPs that need taste + momentum",
-  "Internal tools and dashboards",
-  "Auth, APIs, and platform cleanup",
-  "0→1 builds, owned end to end",
-] as const;
+const slowDaysArchive: WorkSample = {
+  id: "slow-days-archive",
+  eyebrow: "Solo build · In progress",
+  title: "Slow Days Archive",
+  poster: ["Shop"],
+  description: {
+    engineer:
+      "A paper-goods shop I'm building solo on Next.js, Postgres and Better Auth — Razorpay checkout, Shipmozo shipping, and an admin studio I wrote myself.",
+    pm: "A shop built end to end on my own: scope it, build it, ship it — and keep the orders honest.",
+  },
+  href: "https://slowdaysarchive.vercel.app",
+  linkLabel: "Visit site",
+};
+
+export const workSamples: readonly WorkSample[] = [
+  ...(SHOW_SLOW_DAYS ? [slowDaysArchive] : []),
+  {
+    id: "retail-tools",
+    eyebrow: "AdeptMind · Retail SaaS",
+    title: "Retail tools",
+    poster: ["40+"],
+    description: {
+      engineer:
+        "Search, onboarding and admin tools in React and Next.js, used by 40+ enterprise clients.",
+      pm: "Shaped with internal stakeholders and shipped through planned sprints, for 40+ enterprise clients.",
+    },
+  },
+  {
+    id: "secure-team-logins",
+    eyebrow: "AdeptMind · Platform",
+    title: "Secure team logins",
+    poster: ["Auth"],
+    description: {
+      engineer:
+        "Moved sign-in to Better Auth, with organisations, teams and audit logs.",
+      pm: "The quiet platform work that makes a product trustworthy for enterprise teams.",
+    },
+  },
+  {
+    id: "sign-up-pages",
+    eyebrow: "Myclassroom · Growth",
+    title: "Sign-up pages",
+    poster: ["JEE", "NEET"],
+    description: {
+      engineer:
+        "Campaign landing pages and React modules, wired to APIs and MoEngage analytics.",
+      pm: "Built around one goal: more students signing up, measured with analytics.",
+    },
+    href: "https://myclassroom.digital/MyClass/MySeat",
+    linkLabel: "Visit site",
+  },
+];
 
 export const experience: readonly ExperienceEntry[] = [
   {
+    id: "adeptmind",
     role: "Full Stack Engineer",
-    company: "AdeptMind Inc.",
-    location: "Remote · Toronto, Canada",
-    period: "Dec 2022 — Present",
-    detail:
-      "Building product features, platform tooling, and backend improvements for enterprise retail products serving 40+ clients.",
-    points: [
-      "Builds React, Next.js, TypeScript, Node.js, and Python features across search, admin, onboarding, and SSR flows.",
-      "Modernized authentication from NextAuth to Better Auth with organizations, teams, audit logs, and SOC2-ready patterns.",
-      "Improved backend reliability with async FastAPI work, caching, secure tokens, retry mechanisms, tests, and reviews.",
-    ],
+    meta: "AdeptMind · Remote, Toronto",
+    year: "Dec 2022 – now",
+    points: {
+      engineer: [
+        "Features across search, onboarding and admin flows for enterprise retail clients.",
+        "Migrated authentication to Better Auth with organisations, teams and audit logs.",
+        "Rebuilt an internal tool from an end-of-life React version onto modern React.",
+        "Built drag-and-drop interfaces and server-rendered pages in Next.js.",
+      ],
+      pm: [
+        "Help plan the roadmap with internal stakeholders.",
+        "Run sprint planning in Jira and track delivery on Kanban.",
+        "Lead features end to end and mentor developers.",
+        "Keep specs and decisions documented in Confluence.",
+      ],
+    },
   },
   {
+    id: "myclassroom",
     role: "SDE-1",
-    company: "Myclassroom Learning Services Pvt. Ltd.",
-    location: "Noida, India",
-    period: "Sept 2021 — Nov 2022",
-    detail:
-      "Built product UI, landing pages, API integrations, and analytics-backed experiences for edtech products.",
-    points: [
-      "Developed the post-login interface for myseat.mclassroom.digital and delivered React modules from design specs.",
-      "Created lead-capturing landing pages for AITS JEE and AITS NEET campaigns.",
-      "Integrated APIs and MoEngage analytics to improve product feedback loops and business visibility.",
-    ],
+    meta: "Myclassroom · Noida",
+    year: "Sept 2021 – Nov 2022",
+    points: {
+      engineer: [
+        "Built the post-login product interface and reusable React modules.",
+        "Created lead-capture landing pages for AITS JEE and NEET campaigns.",
+        "Integrated APIs and MoEngage analytics.",
+      ],
+      pm: [
+        "Turned campaign goals into landing pages focused on sign-ups.",
+        "Used analytics to see what students did after signing up.",
+      ],
+    },
   },
   {
-    role: "Product + engineering lens",
-    company: "MBA · IT Project Management",
-    location: "Amity University, India",
-    period: "2023 — 2025",
-    detail:
-      "A business-side layer on top of engineering: scope, stakeholders, tradeoffs, delivery, and the occasional spreadsheet with opinions.",
-    points: [
-      "Useful for teams that need someone who can understand the product goal, not just the ticket.",
-      "Comfortable moving between technical detail, user experience, and business context.",
-    ],
+    id: "mba",
+    role: "MBA, IT Project Management",
+    meta: "Amity University · First division with distinction",
+    year: "2023 – 2025",
+    points: {
+      shared: [
+        "Online degree, done on weekends alongside a full-time job.",
+        "Final thesis: a survey on how teams manage projects.",
+        "The business side of building: scope, people and tradeoffs.",
+      ],
+    },
   },
-] as const;
+];
+
+/** Quiet keyword line under Work: scannable stack, no icons or cards. */
+export const toolset: ModeCopy = {
+  engineer: "React · Next.js · TypeScript · Node.js · Postgres · Python",
+  pm: "Roadmaps · Sprint planning · Jira · Kanban · Confluence · Mentoring",
+};
